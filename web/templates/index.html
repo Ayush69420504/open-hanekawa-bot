@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Discord-Bot-Admin-Page</title>
+	<link rel='stylesheet' href="{{ url_for('static', path='css/index.css') }}"></link>
+</head>
+<body>
+	<div id='container'>
+		<h2>Logged in as {{bot_name}}</h2><h2>Currently serving {{num_guilds}} guilds</h2>
+		<h2 id='refresh'>Refresh Logs: <button id='logbutton' onclick='refreshlog()'><img src="{{ url_for('static', path='css/refresh-button.png') }}"></button></h2>
+		<iframe id='functions' src='/get-functions'></iframe>
+	</div>
+	<div id='log'>Click on the refresh button to see logs</div>
+</body>
+<script src="{{ url_for('static', path='scripts/index.js') }}"></script>
+</html>

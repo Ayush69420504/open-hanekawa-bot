@@ -1,0 +1,660 @@
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 62, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 36, in hackernews
+    results = hackernews.gate(keyword)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/hackernews.py", line 18, in gate
+    return process_query(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/hackernews.py", line 26, in process_query
+    url = 'https://hacker-news.firebaseio.com/v0/item/'+id+'.json?print=pretty'
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+
+TypeError: can only concatenate str (not "int") to str
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 62, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 36, in hackernews
+    results = hackernews.gate(keyword)
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/hackernews.py", line 18, in gate
+    return process_query(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/hackernews.py", line 31, in process_query
+    url = data['url']
+          ~~~~^^^^^^^
+
+KeyError: 'url'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 62, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 40, in hackernews
+    await Paginator.Simple(timeout=600, PreviousButton=self.leftbutton, NextButton=self.rightbutton).start(ctx, pages=results)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/Paginator.py", line 68, in start
+    self.message = await ctx.send(embed=self.pages[self.InitialPage], view=self, ephemeral=self.ephemeral)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/discord/ext/commands/context.py", line 848, in send
+    return await super().send(
+           ^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/discord/abc.py", line 1561, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/discord/http.py", line 624, in request
+    async with self.__session.request(method, url, **kwargs) as response:
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/client.py", line 1141, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/client.py", line 536, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/connector.py", line 540, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/connector.py", line 901, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/connector.py", line 1152, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/connector.py", line 874, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 867, in getaddrinfo
+    return await self.run_in_executor(
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 829, in run_in_executor
+    executor.submit(func, *args), loop=self)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/concurrent/futures/thread.py", line 167, in submit
+    raise RuntimeError('cannot schedule new futures after shutdown')
+
+RuntimeError: cannot schedule new futures after shutdown
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 62, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 40, in hackernews
+    await Paginator.Simple(timeout=600, PreviousButton=self.leftbutton, NextButton=self.rightbutton).start(ctx, pages=results)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/Paginator.py", line 68, in start
+    self.message = await ctx.send(embed=self.pages[self.InitialPage], view=self, ephemeral=self.ephemeral)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/discord/ext/commands/context.py", line 848, in send
+    return await super().send(
+           ^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/discord/abc.py", line 1561, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/discord/http.py", line 624, in request
+    async with self.__session.request(method, url, **kwargs) as response:
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/client.py", line 1141, in __aenter__
+    self._resp = await self._coro
+                 ^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/client.py", line 536, in _request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/connector.py", line 540, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/connector.py", line 901, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/connector.py", line 1152, in _create_direct_connection
+    hosts = await asyncio.shield(host_resolved)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/connector.py", line 874, in _resolve_host
+    addrs = await self._resolver.resolve(host, port, family=self._family)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/aiohttp/resolver.py", line 33, in resolve
+    infos = await self._loop.getaddrinfo(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 867, in getaddrinfo
+    return await self.run_in_executor(
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 829, in run_in_executor
+    executor.submit(func, *args), loop=self)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/concurrent/futures/thread.py", line 167, in submit
+    raise RuntimeError('cannot schedule new futures after shutdown')
+
+RuntimeError: cannot schedule new futures after shutdown
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 62, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 116, in search_radio
+    await Paginator.Simple(timeout=600, PreviousButton=self.leftbutton, NextButton=self.rightbutton).start(ctx, pages=embeds)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/Paginator.py", line 68, in start
+    self.message = await ctx.send(embed=self.pages[self.InitialPage], view=self, ephemeral=self.ephemeral)
+                                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+
+IndexError: list index out of range
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 62, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 116, in search_radio
+    if len(embeds) != 0:
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/Paginator.py", line 68, in start
+    self.message = await ctx.send(embed=self.pages[self.InitialPage], view=self, ephemeral=self.ephemeral)
+                                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+
+IndexError: list index out of range
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 62, in on_message
+    await self.map[content[0]](message)
+          ~~~~~~~~^^^^^^^^^^^^
+
+KeyError: 'hululu'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 37, in search_stations_experimental
+    data = radio_browser.search_stations_experimental(keyword)
+                                                      ^^^^^^^
+
+UnboundLocalError: cannot access local variable 'keyword' where it is not associated with a value
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 36, in search_stations_experimental
+    keyword += word + ' '
+    ^^^^^^^
+
+UnboundLocalError: cannot access local variable 'keyword' where it is not associated with a value
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 38, in search_stations_experimental
+    data = radio_browser.search_stations_experimental(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 16, in search_stations_experimental
+    while i < len(pls_links):
+          ^
+
+UnboundLocalError: cannot access local variable 'i' where it is not associated with a value
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+          ~~~~~~~~^^^^^^^^^^^^
+
+TypeError: 'NoneType' object is not subscriptable
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 38, in search_stations_experimental
+    data = radio_browser.search_stations_experimental(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 31, in search_stations_experimental
+    response = urllib.urlopen(request)
+               ^^^^^^
+
+NameError: name 'urllib' is not defined
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 38, in search_stations_experimental
+    data = radio_browser.search_stations_experimental(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 30, in search_stations_experimental
+    request = urllib2.Request(url, headers=headers, timeout=1)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TypeError: Request.__init__() got an unexpected keyword argument 'timeout'
+
+Traceback (most recent call last):
+
+  File "/usr/lib/python3.11/urllib/request.py", line 1348, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+
+  File "/usr/lib/python3.11/http/client.py", line 1286, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+
+  File "/usr/lib/python3.11/http/client.py", line 1332, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+
+  File "/usr/lib/python3.11/http/client.py", line 1281, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+
+  File "/usr/lib/python3.11/http/client.py", line 1041, in _send_output
+    self.send(msg)
+
+  File "/usr/lib/python3.11/http/client.py", line 979, in send
+    self.connect()
+
+  File "/usr/lib/python3.11/http/client.py", line 945, in connect
+    self.sock = self._create_connection(
+                ^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/socket.py", line 851, in create_connection
+    raise exceptions[0]
+
+  File "/usr/lib/python3.11/socket.py", line 836, in create_connection
+    sock.connect(sa)
+
+TimeoutError: timed out
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 38, in search_stations_experimental
+    data = radio_browser.search_stations_experimental(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 31, in search_stations_experimental
+    response = urllib2.urlopen(request, timeout=1)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 519, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 496, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 1377, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 1351, in do_open
+    raise URLError(err)
+
+urllib.error.URLError: <urlopen error timed out>
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 39, in search_stations_experimental
+    await Paginator.Simple(timeout=600, PreviousButton=self.leftbutton, NextButton=self.rightbutton).start(ctx, pages=embeds)
+                                                                                                           ^^^
+
+NameError: name 'ctx' is not defined
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 40, in search_stations_experimental
+    await Paginator.Simple(timeout=600, PreviousButton=self.leftbutton, NextButton=self.rightbutton).start(ctx, pages=embeds)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/Paginator.py", line 68, in start
+    self.message = await ctx.send(embed=self.pages[self.InitialPage], view=self, ephemeral=self.ephemeral)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TypeError: coroutine.send() takes no keyword arguments
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 39, in search_stations_experimental
+    data = radio_browser.search_stations_experimental(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 23, in search_stations_experimental
+    icy_name = getonlytext(td.h4.contents[0])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 83, in getonlytext
+    s = s.replace(s[beg_tag:fin_tag+1], '')
+                            ~~~~~~~^~
+
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 39, in search_stations_experimental
+    data = radio_browser.search_stations_experimental(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 30, in search_stations_experimental
+    print(icy_name+' '+icy_url+' '+icy_genre)
+          ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~
+
+TypeError: can only concatenate str (not "list") to str
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 39, in search_stations_experimental
+    data = radio_browser.search_stations_experimental(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 29, in search_stations_experimental
+    icy_genre = td.contents[0][td.contents[0].index('<br>'):]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ValueError: substring not found
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 39, in search_stations_experimental
+    data = radio_browser.search_stations_experimental(keyword)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 29, in search_stations_experimental
+    icy_genre = td.text[td.text.index('<br>'):]
+                        ^^^^^^^^^^^^^^^^^^^^^
+
+ValueError: substring not found
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+          ~~~~~~~~^^^^^^^^^^^^
+
+TypeError: 'NoneType' object is not subscriptable
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 39, in search_radio_old
+    embeds = radio_browser.search_stations(keyword)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TypeError: search_stations() missing 1 required positional argument: 'keyword'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 39, in search_radio_old
+    embeds = radio_browser.search_stations(keyword)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 60, in search_stations
+    entries = sorted(rb.search(name=keyword), key=lambda x: (-x['votes'], -x['clickcount']))[:10]
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/pyradios/utils.py", line 116, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/pyradios/radios.py", line 487, in search
+    return self.client.get(url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/pyradios/radios.py", line 26, in get
+    return resp.raise_for_status()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/requests/models.py", line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+
+requests.exceptions.HTTPError: 502 Server Error: Bad Gateway for url: https://at1.api.radio-browser.info/json/stations/search?name=blues+
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 232, in play_radio
+    embed = rmqp.play_radio(vc, path, stream_url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/rmqp.py", line 13, in play_radio
+    embed = embed_gen.play_radio(data['name'], data['genre'], data['url'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/embed_gen.py", line 26, in play_radio
+    embed.add_field(title='Genre', value=icy_genre, inline=False)
+
+TypeError: Embed.add_field() got an unexpected keyword argument 'title'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 232, in play_radio
+    embed = rmqp.play_radio(vc, path, stream_url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/rmqp.py", line 20, in play_radio
+    player_env['PLaying']['Stream'] = stream_url
+    ~~~~~~~~~~^^^^^^^^^^^
+
+KeyError: 'PLaying'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 188, in now_playing
+    results = radio_browser.now_playing(path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 69, in now_playing
+    request = urllib2.Request(url, headers=headers)
+                              ^^^
+
+NameError: name 'url' is not defined
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 232, in play_radio
+    await message.channel.send(embed=results)
+                                     ^^^^^^^
+
+NameError: name 'results' is not defined
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 188, in now_playing
+    results = radio_browser.now_playing(path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 69, in now_playing
+    request = urllib2.Request(url, headers=headers)
+                              ^^^
+
+NameError: name 'url' is not defined
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 188, in now_playing
+    results = radio_browser.now_playing(path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 75, in now_playing
+    track_name = resolve_track_name(response, metaint)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 95, in resolve_track_name
+    metadata_length = struct.unpack('B', response.read(1))[0] * 16  # length byte
+                      ^^^^^^
+
+NameError: name 'struct' is not defined
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 188, in now_playing
+    results,file = radio_browser.now_playing(path)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 80, in now_playing
+    path = random.choice(os.listdir("/data/lofi-backgrounds/"))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+FileNotFoundError: [Errno 2] No such file or directory: '/data/lofi-backgrounds/'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 188, in now_playing
+    results,file = radio_browser.now_playing(path)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 81, in now_playing
+    file = discord.File(path, filename=thumb.png)
+                                       ^^^^^
+
+NameError: name 'thumb' is not defined
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 188, in now_playing
+    results,file = radio_browser.now_playing(path)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 81, in now_playing
+    file = discord.File(path, filename='thumb.png')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/.local/lib/python3.11/site-packages/discord/file.py", line 97, in __init__
+    self.fp = open(fp, 'rb')
+              ^^^^^^^^^^^^^^
+
+FileNotFoundError: [Errno 2] No such file or directory: 'lofi-10.jpg'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 63, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 231, in play_radio
+    embed = rmqp.play_radio(vc, path, stream_url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/rmqp.py", line 14, in play_radio
+    data = radio_browser.icy_extract(stream_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 17, in icy_extract
+    request = urllib2.Request(url, headers=headers)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 322, in __init__
+    self.full_url = url
+    ^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 348, in full_url
+    self._parse()
+
+  File "/usr/lib/python3.11/urllib/request.py", line 377, in _parse
+    raise ValueError("unknown url type: %r" % self.full_url)
+
+ValueError: unknown url type: 'data/lofi-backgrounds/'
+

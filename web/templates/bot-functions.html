@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel='stylesheet', href="{{ url_for('static', path='css/bot-functions.css') }}"></link>
+</head>
+<body>
+<h2>Functions</h2>
+<h3>Synatx: !ara [function] [function args ..]</h3>
+<ol>
+	<li>
+		General Functions
+		<ul>
+			<li>whoami</li>
+			<p>= Returns an embed containing bot information</p>
+			<li>ping</li>
+			<p>= Returns the current bot latency in ms</p>
+			<li>hostinfo</li>
+			<p>= Returns important system information from host machine</p>
+		</ul>
+	</li>
+	<li>
+		QRCODE Generation using google apis
+		<ul>
+			<li>urltoqr</li>
+			<p>= Takes a url as input and provides a googleapi link of a qrcode leading to that url</p>
+			<li>wifitoqr</li>
+			<p>= Takes ssid, encryption and password as input and produces a qrcode with which android phones can connect to that network</p>
+		</ul>
+	</li>
+	<li>
+		Manga functions
+		<ul>
+			<li>search-manga</li>
+			<p>= Requires one argument: Name of manga. Returns paginated embed(s) containing information about the manga'(s)</p>
+			<li>list-chapters</li>
+			<p>= Requires manga-code, starting chapter, ending-chapter. If no starting and ending chapter is provided then the entire chapter list is provided
+			. If only starting chapter is provided then it shows all chapter from that chapter. If both starting and ending chapter are provided then it shows
+			the list in that range</p>
+			<li>download-chapter</li>
+			<p>= Requires manga-code and chapter-code. Returns a pdf of that chapter</p>
+		</ul>
+	</li>
+	<li>
+		Music functions<br/>Providers: Soundcloud and Lofi Girl
+		<ul>
+			<li>search-song</li>
+			<p>= Requires keyword(s). Returns 5 paginated embeds relevant to the song</p>
+			<li>joinvc</li>
+			<p>= Joins the current voice channel of the user. Throws a error message if user is not in a voice channel</p>
+			<li>leavevc</li>
+			<p>= Leaves the current voice channel of that guild</p>
+			<li>pause</li>
+			<p>= Pauses the ongoing audio</p>
+			<li>resume</li>
+			<p>= Resumes the paused audio</p>
+			<li>now-playing</li>
+			<p>= Returns an embed containing the name, current-time, duration and thumbnail of the current audio</p>
+			<li>skip-track</li>
+			<p>= Skips the current playing or paused track</p>
+			<li>list-queue</li>
+			<p>= Shows the songs collected in the queue for that particular guild</p>
+			<li>lofibeats</li>
+			<p>= Starts playing a hls stream of Lofi Girl from chilled cow</p>
+			<li>stoplofi</li>
+			<p>= Stops the lofi hls player and allows queue system to work</p>
+			<li>queue</li>
+			<p>= Takes a keyword(s) as an argument. Adds a song to the queue, and starts playing it, if no song is playing</p>
+			<li>drop-queue</li>
+			<p>= Drops the entire queue for that particular guild/channel. Basically a hard reset</p>
+		</ul>
+	</li>
+</ol>
+</body>
+</html>

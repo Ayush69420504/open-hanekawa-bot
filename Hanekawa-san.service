@@ -1,0 +1,13 @@
+[Unit]
+Description=Discord Bot By Ayush Karmakar
+After=network.target
+
+[Service]
+Type=exec
+User=Hanekawa-san
+WorkingDirectory=/home/Hanekawa-san/
+ExecStart=/usr/bin/python3 main.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
