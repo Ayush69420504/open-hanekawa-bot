@@ -21,6 +21,8 @@ How to run:
 
 This is not perfect, i intend to make it fully customizable with more options.
 
+Note: The data available in data folder is free to use :)
+
 Note: Hanekawa-san.service is a systemd service file that manages starting of discord bot on boot time
 
 Note: Message replies are hard coded in a speech manner resembling Hanekawa Tsubasa chan
