@@ -15,7 +15,7 @@ def play_radio(vc, path, stream_url):
 	if data != 'timeout':
 		embed = embed_gen.play_radio(data['name'], data['genre'], data['url'])
 		player_env = json.load(open(path+'/player_env.json', 'r'))
-		source = discord.FFmpegPCMAudio(stream_url)
+		source = discord.FFmpegPCMAudio(stream_url, **FFMPEG_OPTIONS)
 		source = discord.PCMVolumeTransformer(source)
 		source.volume = player_env['Volume'][1]/100
 		player_env['Playing']['Title'] = data['name']
