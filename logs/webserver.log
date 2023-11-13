@@ -1,0 +1,914 @@
+[2023-11-13 17:13:59,446.446] INFO [140472268480576] - Started server process [9663]
+[2023-11-13 17:13:59,446.446] INFO [140472268480576] - Waiting for application startup.
+[2023-11-13 17:13:59,447.447] INFO [140472268480576] - Application startup complete.
+[2023-11-13 17:13:59,447.447] INFO [140472268480576] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-11-13 17:14:56,274.274] INFO [140472268480576] - 127.0.0.1:41374 - "GET / HTTP/1.1" 200
+[2023-11-13 17:14:57,145.145] INFO [140472268480576] - 127.0.0.1:41374 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:14:57,235.235] INFO [140472268480576] - 127.0.0.1:41374 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:14:57,402.402] INFO [140472268480576] - 127.0.0.1:41374 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:15:03,832.832] INFO [140472268480576] - 127.0.0.1:51894 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:18:40,826.826] INFO [140472268480576] - Shutting down
+[2023-11-13 17:18:40,928.928] INFO [140472268480576] - Waiting for application shutdown.
+[2023-11-13 17:18:40,929.929] INFO [140472268480576] - Application shutdown complete.
+[2023-11-13 17:18:40,929.929] INFO [140472268480576] - Finished server process [9663]
+[2023-11-13 17:18:50,811.811] INFO [140079824732224] - Started server process [10012]
+[2023-11-13 17:18:50,811.811] INFO [140079824732224] - Waiting for application startup.
+[2023-11-13 17:18:50,811.811] INFO [140079824732224] - Application startup complete.
+[2023-11-13 17:18:50,812.812] INFO [140079824732224] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-11-13 17:19:27,038.038] INFO [140079824732224] - 127.0.0.1:51624 - "GET / HTTP/1.1" 200
+[2023-11-13 17:19:27,369.369] INFO [140079824732224] - 127.0.0.1:51624 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:19:27,408.408] INFO [140079824732224] - 127.0.0.1:51624 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:19:27,491.491] INFO [140079824732224] - 127.0.0.1:51624 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:19:34,189.189] INFO [140079824732224] - 127.0.0.1:37192 - "GET /get-webserverlog HTTP/1.1" 200
+[2023-11-13 17:19:39,273.273] INFO [140079824732224] - 127.0.0.1:37200 - "GET /get-webserverlog HTTP/1.1" 200
+[2023-11-13 17:19:41,611.611] INFO [140079824732224] - 127.0.0.1:37200 - "GET /get-webserverlog HTTP/1.1" 200
+[2023-11-13 17:19:43,414.414] INFO [140079824732224] - 127.0.0.1:37200 - "GET /get-webserverlog HTTP/1.1" 200
+[2023-11-13 17:19:44,594.594] INFO [140079824732224] - 127.0.0.1:37200 - "GET /get-webserverlog HTTP/1.1" 200
+[2023-11-13 17:19:47,253.253] INFO [140079824732224] - 127.0.0.1:37200 - "GET /get-webserverlog HTTP/1.1" 200
+[2023-11-13 17:19:48,635.635] INFO [140079824732224] - 127.0.0.1:37200 - "GET /get-webserverlog HTTP/1.1" 200
+[2023-11-13 17:19:53,576.576] INFO [140079824732224] - 127.0.0.1:37200 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:19:53,619.619] INFO [140079824732224] - 127.0.0.1:37200 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:19:53,687.687] INFO [140079824732224] - 127.0.0.1:37200 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:19:59,889.889] INFO [140079824732224] - 127.0.0.1:53798 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:20:01,923.923] INFO [140079824732224] - 127.0.0.1:53798 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:20:43,471.471] INFO [140079824732224] - 127.0.0.1:47992 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:20:43,514.514] INFO [140079824732224] - 127.0.0.1:47992 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:20:43,558.558] INFO [140079824732224] - 127.0.0.1:47992 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:20:49,821.821] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:20:49,868.868] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:20:49,923.923] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:20:52,104.104] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-webserverlog HTTP/1.1" 200
+[2023-11-13 17:20:54,281.281] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:20:54,337.337] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:20:54,388.388] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:20:56,970.970] INFO [140079824732224] - 127.0.0.1:48004 - "GET / HTTP/1.1" 200
+[2023-11-13 17:20:57,157.157] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:20:57,200.200] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:20:57,237.237] INFO [140079824732224] - 127.0.0.1:48004 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:24:34,269.269] INFO [140079824732224] - 127.0.0.1:53068 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:24:42,308.308] INFO [140079824732224] - 127.0.0.1:47392 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:24:42,357.357] INFO [140079824732224] - 127.0.0.1:47392 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:24:42,449.449] INFO [140079824732224] - 127.0.0.1:47392 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:25:18,729.729] INFO [140079824732224] - 192.168.1.118:38792 - "GET / HTTP/1.1" 200
+[2023-11-13 17:25:18,860.860] INFO [140079824732224] - 192.168.1.118:38792 - "GET /static/css/index.css HTTP/1.1" 200
+[2023-11-13 17:25:18,917.917] INFO [140079824732224] - 192.168.1.118:38802 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 17:25:18,925.925] INFO [140079824732224] - 192.168.1.118:38792 - "GET /static/css/refresh-errors.png HTTP/1.1" 200
+[2023-11-13 17:25:19,021.021] INFO [140079824732224] - 192.168.1.118:38802 - "GET /static/css/refresh-discordlog.png HTTP/1.1" 200
+[2023-11-13 17:25:19,127.127] INFO [140079824732224] - 192.168.1.118:38792 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:25:19,159.159] INFO [140079824732224] - 192.168.1.118:38792 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:25:19,418.418] INFO [140079824732224] - 192.168.1.118:38792 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:44:40,599.599] INFO [140079824732224] - Shutting down
+[2023-11-13 17:44:40,700.700] INFO [140079824732224] - Waiting for application shutdown.
+[2023-11-13 17:44:40,701.701] INFO [140079824732224] - Application shutdown complete.
+[2023-11-13 17:44:40,702.702] INFO [140079824732224] - Finished server process [10012]
+[2023-11-13 17:44:50,829.829] INFO [140159611260992] - Started server process [11319]
+[2023-11-13 17:44:50,829.829] INFO [140159611260992] - Waiting for application startup.
+[2023-11-13 17:44:50,830.830] INFO [140159611260992] - Application startup complete.
+[2023-11-13 17:44:50,830.830] INFO [140159611260992] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-11-13 17:44:54,911.911] INFO [140159611260992] - 127.0.0.1:57374 - "GET / HTTP/1.1" 500
+[2023-11-13 17:44:54,912.912] ERROR [140159611260992] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 29, in index
+    return self.templates.TemplateResponse('index.html', headers=self.headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Jinja2Templates.TemplateResponse() missing 1 required positional argument: 'context'
+[2023-11-13 17:44:56,597.597] INFO [140159611260992] - 127.0.0.1:57384 - "GET / HTTP/1.1" 500
+[2023-11-13 17:44:56,599.599] ERROR [140159611260992] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 29, in index
+    return self.templates.TemplateResponse('index.html', headers=self.headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Jinja2Templates.TemplateResponse() missing 1 required positional argument: 'context'
+[2023-11-13 17:45:10,175.175] INFO [140159611260992] - 127.0.0.1:36038 - "GET /get-sharedata HTTP/1.1" 500
+[2023-11-13 17:45:10,176.176] ERROR [140159611260992] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 322, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'ClientUser' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 327, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 61, in get_sharedata
+    return JSONResponse(content=jsonable_encoder(self.discord_bot.generate_share_data()), headers=self.headers)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 287, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 330, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'ClientUser' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+[2023-11-13 17:45:13,000.000] INFO [140159611260992] - 127.0.0.1:60308 - "GET /get-sharedata HTTP/1.1" 500
+[2023-11-13 17:45:13,001.001] ERROR [140159611260992] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 322, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'ClientUser' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 327, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 61, in get_sharedata
+    return JSONResponse(content=jsonable_encoder(self.discord_bot.generate_share_data()), headers=self.headers)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 287, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 330, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'ClientUser' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+[2023-11-13 17:46:04,922.922] INFO [140159611260992] - Shutting down
+[2023-11-13 17:46:05,023.023] INFO [140159611260992] - Waiting for application shutdown.
+[2023-11-13 17:46:05,023.023] INFO [140159611260992] - Application shutdown complete.
+[2023-11-13 17:46:05,024.024] INFO [140159611260992] - Finished server process [11319]
+[2023-11-13 17:46:15,043.043] INFO [139850199027776] - Started server process [11630]
+[2023-11-13 17:46:15,044.044] INFO [139850199027776] - Waiting for application startup.
+[2023-11-13 17:46:15,044.044] INFO [139850199027776] - Application startup complete.
+[2023-11-13 17:46:15,046.046] INFO [139850199027776] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-11-13 17:46:15,582.582] INFO [139850199027776] - 127.0.0.1:58502 - "GET /get-sharedata HTTP/1.1" 500
+[2023-11-13 17:46:15,583.583] ERROR [139850199027776] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 322, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'ClientUser' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 327, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 61, in get_sharedata
+    return JSONResponse(content=jsonable_encoder(self.discord_bot.generate_share_data()), headers=self.headers)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 287, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 330, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'ClientUser' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+[2023-11-13 17:46:17,096.096] INFO [139850199027776] - 127.0.0.1:58512 - "GET /get-sharedata HTTP/1.1" 500
+[2023-11-13 17:46:17,097.097] ERROR [139850199027776] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 322, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'ClientUser' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 327, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 61, in get_sharedata
+    return JSONResponse(content=jsonable_encoder(self.discord_bot.generate_share_data()), headers=self.headers)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 287, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 330, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'ClientUser' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+[2023-11-13 17:46:49,070.070] INFO [139850199027776] - 127.0.0.1:53908 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:48:44,970.970] INFO [139850199027776] - Shutting down
+[2023-11-13 17:48:45,072.072] INFO [139850199027776] - Finished server process [11630]
+[2023-11-13 17:48:45,074.074] ERROR [139850199027776] - Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 686, in lifespan
+    await receive()
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/lifespan/on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/queues.py", line 158, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2023-11-13 17:48:55,312.312] INFO [139623349981248] - Started server process [11855]
+[2023-11-13 17:48:55,313.313] INFO [139623349981248] - Waiting for application startup.
+[2023-11-13 17:48:55,313.313] INFO [139623349981248] - Application startup complete.
+[2023-11-13 17:48:55,314.314] INFO [139623349981248] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-11-13 17:49:01,346.346] INFO [139623349981248] - 127.0.0.1:34232 - "GET /get-sharedata HTTP/1.1" 500
+[2023-11-13 17:49:01,347.347] ERROR [139623349981248] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 322, in jsonable_encoder
+    data = dict(obj)
+           ^^^^^^^^^
+TypeError: 'ClientUser' object is not iterable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 327, in jsonable_encoder
+    data = vars(obj)
+           ^^^^^^^^^
+TypeError: vars() argument must have __dict__ attribute
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 61, in get_sharedata
+    return JSONResponse(content=jsonable_encoder(self.discord_bot.generate_share_data()), headers=self.headers)
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 287, in jsonable_encoder
+    encoded_value = jsonable_encoder(
+                    ^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/encoders.py", line 330, in jsonable_encoder
+    raise ValueError(errors) from e
+ValueError: [TypeError("'ClientUser' object is not iterable"), TypeError('vars() argument must have __dict__ attribute')]
+[2023-11-13 17:50:48,418.418] INFO [139623349981248] - Shutting down
+[2023-11-13 17:50:48,520.520] INFO [139623349981248] - Waiting for application shutdown.
+[2023-11-13 17:50:48,520.520] INFO [139623349981248] - Application shutdown complete.
+[2023-11-13 17:50:48,520.520] INFO [139623349981248] - Finished server process [11855]
+[2023-11-13 17:50:58,560.560] INFO [140649118326848] - Started server process [12168]
+[2023-11-13 17:50:58,560.560] INFO [140649118326848] - Waiting for application startup.
+[2023-11-13 17:50:58,560.560] INFO [140649118326848] - Application startup complete.
+[2023-11-13 17:50:58,561.561] INFO [140649118326848] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-11-13 17:51:03,172.172] INFO [140649118326848] - 127.0.0.1:49748 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:51:12,525.525] INFO [140649118326848] - 127.0.0.1:48248 - "GET / HTTP/1.1" 500
+[2023-11-13 17:51:12,526.526] ERROR [140649118326848] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 29, in index
+    return self.templates.TemplateResponse('index.html', headers=self.headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Jinja2Templates.TemplateResponse() missing 1 required positional argument: 'context'
+[2023-11-13 17:51:14,244.244] INFO [140649118326848] - 127.0.0.1:48258 - "GET / HTTP/1.1" 500
+[2023-11-13 17:51:14,250.250] ERROR [140649118326848] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 29, in index
+    return self.templates.TemplateResponse('index.html', headers=self.headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Jinja2Templates.TemplateResponse() missing 1 required positional argument: 'context'
+[2023-11-13 17:52:12,968.968] INFO [140649118326848] - Shutting down
+[2023-11-13 17:52:13,069.069] INFO [140649118326848] - Waiting for application shutdown.
+[2023-11-13 17:52:13,070.070] INFO [140649118326848] - Application shutdown complete.
+[2023-11-13 17:52:13,070.070] INFO [140649118326848] - Finished server process [12168]
+[2023-11-13 17:52:34,513.513] INFO [140634205581376] - Started server process [12505]
+[2023-11-13 17:52:34,515.515] INFO [140634205581376] - Waiting for application startup.
+[2023-11-13 17:52:34,516.516] INFO [140634205581376] - Application startup complete.
+[2023-11-13 17:52:34,518.518] INFO [140634205581376] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-11-13 17:52:35,098.098] INFO [140634205581376] - 127.0.0.1:55910 - "GET / HTTP/1.1" 500
+[2023-11-13 17:52:35,099.099] ERROR [140634205581376] - Exception in ASGI application
+Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/protocols/http/h11_impl.py", line 408, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py", line 84, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/applications.py", line 1106, in __call__
+    await super().__call__(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/applications.py", line 122, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 184, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/errors.py", line 162, in __call__
+    await self.app(scope, receive, _send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 79, in __call__
+    raise exc
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+           ^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/webserver.py", line 29, in index
+    return self.templates.TemplateResponse('index.html', context = {}, headers=self.headers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/templating.py", line 106, in TemplateResponse
+    raise ValueError('context must include a "request" key')
+ValueError: context must include a "request" key
+[2023-11-13 17:53:33,156.156] INFO [140634205581376] - Shutting down
+[2023-11-13 17:53:33,258.258] INFO [140634205581376] - Waiting for application shutdown.
+[2023-11-13 17:53:33,258.258] INFO [140634205581376] - Application shutdown complete.
+[2023-11-13 17:53:33,259.259] INFO [140634205581376] - Finished server process [12505]
+[2023-11-13 17:53:43,391.391] INFO [140301696831552] - Started server process [12652]
+[2023-11-13 17:53:43,391.391] INFO [140301696831552] - Waiting for application startup.
+[2023-11-13 17:53:43,391.391] INFO [140301696831552] - Application startup complete.
+[2023-11-13 17:53:43,392.392] INFO [140301696831552] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-11-13 17:53:45,618.618] INFO [140301696831552] - 127.0.0.1:45316 - "GET / HTTP/1.1" 200
+[2023-11-13 17:53:45,888.888] INFO [140301696831552] - 127.0.0.1:45316 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:53:45,929.929] INFO [140301696831552] - 127.0.0.1:45316 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:53:45,993.993] INFO [140301696831552] - 127.0.0.1:45316 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:53:49,133.133] INFO [140301696831552] - 127.0.0.1:45316 - "GET / HTTP/1.1" 200
+[2023-11-13 17:53:49,352.352] INFO [140301696831552] - 127.0.0.1:45316 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:53:49,387.387] INFO [140301696831552] - 127.0.0.1:45316 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:53:49,424.424] INFO [140301696831552] - 127.0.0.1:45316 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:54:21,570.570] INFO [140301696831552] - 127.0.0.1:56722 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 17:54:26,788.788] INFO [140301696831552] - 127.0.0.1:56738 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:54:26,925.925] INFO [140301696831552] - 127.0.0.1:56738 - "GET /get-sharedata HTTP/1.1" 405
+[2023-11-13 17:54:26,990.990] INFO [140301696831552] - 127.0.0.1:56738 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:54:27,040.040] INFO [140301696831552] - 127.0.0.1:56738 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:54:27,680.680] INFO [140301696831552] - 127.0.0.1:56738 - "GET / HTTP/1.1" 200
+[2023-11-13 17:54:28,251.251] INFO [140301696831552] - 127.0.0.1:56738 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:54:28,561.561] INFO [140301696831552] - 127.0.0.1:56738 - "GET /get-sharedata HTTP/1.1" 405
+[2023-11-13 17:54:28,690.690] INFO [140301696831552] - 127.0.0.1:56738 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:54:28,757.757] INFO [140301696831552] - 127.0.0.1:56738 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:54:50,785.785] INFO [140301696831552] - 127.0.0.1:58000 - "GET /get-sharedata HTTP/1.1" 405
+[2023-11-13 17:54:55,608.608] INFO [140301696831552] - 127.0.0.1:58000 - "GET /get-sharedata HTTP/1.1" 405
+[2023-11-13 17:55:21,520.520] INFO [140301696831552] - 127.0.0.1:37922 - "GET /get-sharedata HTTP/1.1" 405
+[2023-11-13 17:55:26,989.989] INFO [140301696831552] - Shutting down
+[2023-11-13 17:55:27,091.091] INFO [140301696831552] - Finished server process [12652]
+[2023-11-13 17:55:27,100.100] ERROR [140301696831552] - Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 686, in lifespan
+    await receive()
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/lifespan/on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/queues.py", line 158, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2023-11-13 17:55:37,372.372] INFO [140222609276992] - Started server process [13019]
+[2023-11-13 17:55:37,373.373] INFO [140222609276992] - Waiting for application startup.
+[2023-11-13 17:55:37,373.373] INFO [140222609276992] - Application startup complete.
+[2023-11-13 17:55:37,373.373] INFO [140222609276992] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-11-13 17:55:38,822.822] INFO [140222609276992] - 127.0.0.1:37278 - "GET / HTTP/1.1" 200
+[2023-11-13 17:55:38,961.961] INFO [140222609276992] - 127.0.0.1:37278 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 17:55:39,253.253] INFO [140222609276992] - 127.0.0.1:37278 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:55:39,327.327] INFO [140222609276992] - 127.0.0.1:37278 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:55:39,677.677] INFO [140222609276992] - 127.0.0.1:37278 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:55:39,735.735] INFO [140222609276992] - 127.0.0.1:37278 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:55:41,622.622] INFO [140222609276992] - 127.0.0.1:37278 - "GET / HTTP/1.1" 200
+[2023-11-13 17:55:41,962.962] INFO [140222609276992] - 127.0.0.1:37278 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:55:42,310.310] INFO [140222609276992] - 127.0.0.1:37278 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:55:42,360.360] INFO [140222609276992] - 127.0.0.1:37278 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:55:42,479.479] INFO [140222609276992] - 127.0.0.1:37278 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:56:12,084.084] INFO [140222609276992] - 127.0.0.1:53942 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:56:17,902.902] INFO [140222609276992] - 127.0.0.1:53954 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:56:18,709.709] INFO [140222609276992] - 127.0.0.1:53954 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:56:19,015.015] INFO [140222609276992] - 127.0.0.1:53954 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:56:19,107.107] INFO [140222609276992] - 127.0.0.1:53954 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:56:59,964.964] INFO [140222609276992] - 127.0.0.1:56530 - "GET / HTTP/1.1" 200
+[2023-11-13 17:57:00,226.226] INFO [140222609276992] - 127.0.0.1:56530 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 17:57:00,802.802] INFO [140222609276992] - 127.0.0.1:56530 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:57:01,045.045] INFO [140222609276992] - 127.0.0.1:56530 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:57:01,123.123] INFO [140222609276992] - 127.0.0.1:56530 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:57:01,175.175] INFO [140222609276992] - 127.0.0.1:56530 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:57:56,944.944] INFO [140222609276992] - 127.0.0.1:56250 - "GET / HTTP/1.1" 200
+[2023-11-13 17:57:58,060.060] INFO [140222609276992] - 127.0.0.1:56250 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:57:58,257.257] INFO [140222609276992] - 127.0.0.1:56250 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:57:58,285.285] INFO [140222609276992] - 127.0.0.1:56250 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:57:58,326.326] INFO [140222609276992] - 127.0.0.1:56250 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:57:59,297.297] INFO [140222609276992] - 127.0.0.1:56250 - "GET / HTTP/1.1" 200
+[2023-11-13 17:58:00,211.211] INFO [140222609276992] - 127.0.0.1:56250 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:58:00,290.290] INFO [140222609276992] - 127.0.0.1:56250 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:58:00,337.337] INFO [140222609276992] - 127.0.0.1:56250 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:58:00,376.376] INFO [140222609276992] - 127.0.0.1:56250 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:58:09,862.862] INFO [140222609276992] - 127.0.0.1:36768 - "GET / HTTP/1.1" 200
+[2023-11-13 17:58:10,910.910] INFO [140222609276992] - 127.0.0.1:36768 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:58:11,032.032] INFO [140222609276992] - 127.0.0.1:36768 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:58:11,067.067] INFO [140222609276992] - 127.0.0.1:36768 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:58:11,107.107] INFO [140222609276992] - 127.0.0.1:36768 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:58:25,805.805] INFO [140222609276992] - 127.0.0.1:52170 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 17:58:29,671.671] INFO [140222609276992] - 127.0.0.1:52170 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 17:58:32,047.047] INFO [140222609276992] - 127.0.0.1:52170 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:58:32,124.124] INFO [140222609276992] - 127.0.0.1:52170 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:58:32,195.195] INFO [140222609276992] - 127.0.0.1:52170 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:58:32,308.308] INFO [140222609276992] - 127.0.0.1:52170 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:58:32,613.613] INFO [140222609276992] - 127.0.0.1:52170 - "GET / HTTP/1.1" 200
+[2023-11-13 17:58:32,840.840] INFO [140222609276992] - 127.0.0.1:52170 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 17:58:33,139.139] INFO [140222609276992] - 127.0.0.1:52170 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:58:33,692.692] INFO [140222609276992] - 127.0.0.1:52170 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:58:33,743.743] INFO [140222609276992] - 127.0.0.1:52170 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:58:33,802.802] INFO [140222609276992] - 127.0.0.1:52170 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:59:16,773.773] INFO [140222609276992] - 127.0.0.1:55604 - "GET / HTTP/1.1" 200
+[2023-11-13 17:59:17,013.013] INFO [140222609276992] - 127.0.0.1:55604 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 17:59:17,652.652] INFO [140222609276992] - 127.0.0.1:55604 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:59:18,034.034] INFO [140222609276992] - 127.0.0.1:55604 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:59:18,287.287] INFO [140222609276992] - 127.0.0.1:55604 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:59:18,406.406] INFO [140222609276992] - 127.0.0.1:55604 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 17:59:28,328.328] INFO [140222609276992] - 127.0.0.1:42422 - "GET / HTTP/1.1" 200
+[2023-11-13 17:59:28,507.507] INFO [140222609276992] - 127.0.0.1:42422 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 17:59:28,796.796] INFO [140222609276992] - 127.0.0.1:42422 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 17:59:28,905.905] INFO [140222609276992] - 127.0.0.1:42422 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 17:59:29,473.473] INFO [140222609276992] - 127.0.0.1:42422 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 17:59:29,542.542] INFO [140222609276992] - 127.0.0.1:42422 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 18:00:15,440.440] INFO [140222609276992] - 127.0.0.1:42066 - "GET / HTTP/1.1" 200
+[2023-11-13 18:00:15,680.680] INFO [140222609276992] - 127.0.0.1:42066 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 18:00:16,030.030] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 18:00:16,062.062] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 18:00:16,160.160] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 18:00:16,603.603] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 18:00:17,723.723] INFO [140222609276992] - 127.0.0.1:42066 - "GET / HTTP/1.1" 200
+[2023-11-13 18:00:17,883.883] INFO [140222609276992] - 127.0.0.1:42066 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 18:00:18,415.415] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 18:00:18,644.644] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 18:00:18,696.696] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 18:00:18,815.815] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 18:00:21,995.995] INFO [140222609276992] - 127.0.0.1:42066 - "GET / HTTP/1.1" 200
+[2023-11-13 18:00:22,061.061] INFO [140222609276992] - 127.0.0.1:42066 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 18:00:22,209.209] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 18:00:22,241.241] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 18:00:22,275.275] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 18:00:22,324.324] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 18:00:23,344.344] INFO [140222609276992] - 127.0.0.1:42066 - "GET / HTTP/1.1" 200
+[2023-11-13 18:00:23,411.411] INFO [140222609276992] - 127.0.0.1:42066 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 18:00:23,560.560] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 18:00:23,605.605] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 18:00:23,635.635] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 18:00:23,673.673] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 18:00:24,562.562] INFO [140222609276992] - 127.0.0.1:42066 - "GET / HTTP/1.1" 200
+[2023-11-13 18:00:24,648.648] INFO [140222609276992] - 127.0.0.1:42066 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 18:00:24,879.879] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 18:00:24,937.937] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 18:00:24,976.976] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 18:00:25,030.030] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 18:00:25,880.880] INFO [140222609276992] - 127.0.0.1:42066 - "GET / HTTP/1.1" 200
+[2023-11-13 18:00:25,963.963] INFO [140222609276992] - 127.0.0.1:42066 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 18:00:26,108.108] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 18:00:26,138.138] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 18:00:26,162.162] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 18:00:26,207.207] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 18:00:27,028.028] INFO [140222609276992] - 127.0.0.1:42066 - "GET / HTTP/1.1" 200
+[2023-11-13 18:00:27,144.144] INFO [140222609276992] - 127.0.0.1:42066 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 18:00:27,296.296] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 18:00:27,328.328] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 18:00:27,358.358] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 18:00:27,409.409] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 18:00:28,235.235] INFO [140222609276992] - 127.0.0.1:42066 - "GET / HTTP/1.1" 200
+[2023-11-13 18:00:28,309.309] INFO [140222609276992] - 127.0.0.1:42066 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2023-11-13 18:00:28,430.430] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-sharedata HTTP/1.1" 200
+[2023-11-13 18:00:28,472.472] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-helpbook HTTP/1.1" 200
+[2023-11-13 18:00:28,502.502] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-discordlog HTTP/1.1" 200
+[2023-11-13 18:00:28,574.574] INFO [140222609276992] - 127.0.0.1:42066 - "GET /get-generalerrors HTTP/1.1" 200
+[2023-11-13 18:04:22,661.661] INFO [140222609276992] - Shutting down
+[2023-11-13 18:04:22,763.763] INFO [140222609276992] - Waiting for application shutdown.
+[2023-11-13 18:04:22,764.764] INFO [140222609276992] - Application shutdown complete.
+[2023-11-13 18:04:22,764.764] INFO [140222609276992] - Finished server process [13019]

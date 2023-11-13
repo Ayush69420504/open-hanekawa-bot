@@ -4,13 +4,21 @@
 	<title>Discord-Bot-Admin-Page</title>
 	<link rel='stylesheet' href="{{ url_for('static', path='css/index.css') }}"></link>
 </head>
-<body>
-	<div id='container'>
-		<h2>Logged in as {{bot_name}}</h2><h2>Currently serving {{num_guilds}} guilds</h2>
-		<h2 id='refresh'>Refresh Logs: <button id='logbutton' onclick='refreshlog()'><img src="{{ url_for('static', path='css/refresh-button.png') }}"></button></h2>
-		<iframe id='functions' src='/get-functions'></iframe>
+<body onload='start()'>
+	<div id="container">
+		<div id="gist">
+			<div id="sharedata" style="float:left; width:80%;"></div>
+			<div style="float:right; width:20%;">
+				<button id='logbutton' onclick='refreshlog()'><img src="{{ url_for('static', path='css/refresh-discordlog.png') }}"></button>
+				<button id="errorbutton" onclick="refreshErrors()"><img src="{{ url_for('static', path='css/refresh-errors.png') }}"></button>
+			</div>
+		</div>
+		<div id="functions"><h3>Functions HelpBook</h3><h3>Syntax: !ara (command) (data, data, ...) //data is seperated by spaces</h3></div>
 	</div>
-	<div id='log'>Click on the refresh button to see logs</div>
+	<div id='logs-container'>
+		<div id='discord-logs'></div>	
+		<div id="general-errors"></div>
+	</div>
 </body>
 <script src="{{ url_for('static', path='scripts/index.js') }}"></script>
 </html>

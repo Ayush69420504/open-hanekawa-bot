@@ -1,4 +1,4 @@
-import requests,discord,time,multiprocessing,json
+import requests,discord,json
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 #embed_gen contains template functions to generate embeds
@@ -9,7 +9,7 @@ from io import BytesIO
 defaults = json.load(open('defaults.json', 'r'))
 embed_color = int(defaults['embed_color'], 0)
 
-def search_manga(message, keyword):	
+def search_manga(keyword):	
 	embeds = []
 	url = 'https://manganato.com/search/story/'+keyword
 	page = requests.get(url)
@@ -25,7 +25,7 @@ def search_manga(message, keyword):
 		embeds.append(embed_gen.search_manga(title, manga_code, latest_chapter, author_name, imurl))
 	return embeds
 
-def list_chapters(message, keyword, start, end):
+def list_chapters(keyword, start, end):
 	embeds = []
 	url = 'https://chapmanganato.com/'+keyword
 	page = requests.get(url)

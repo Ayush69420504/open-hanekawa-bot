@@ -3,6 +3,8 @@ from __future__ import annotations
 import discord
 from discord.ext import commands
 
+#I think i got this simple implementation from a currently unavailable PyPi repo or copied from stack overflow
+#Still provides a basic interactive message builder for this system 
 
 class Simple(discord.ui.View):
     """

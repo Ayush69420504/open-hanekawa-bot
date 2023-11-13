@@ -1,6 +1,6 @@
-import discord,operator,json,requests,struct,re,os,random
+import discord,operator,json,requests,struct,re,os,random,time
 from pyradios import RadioBrowser
-from utils import embed_gen
+from utils import embed_gen,oxo
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 try:
@@ -78,12 +78,11 @@ def now_playing(path):
 		embed.add_field(name='Genre', value=data['icy-genre'], inline=False)
 		embed.add_field(name='Track Name', value=track_name, inline=False)
 		path = 'data/lofi-backgrounds/'+random.choice(os.listdir("data/lofi-backgrounds/"))
-		file = discord.File(path, filename='thumb.png')
-		embed.set_image(url='attachment://thumb.png')
-		return embed,file
+		link = oxo.upload_file_path(path=path, expires=round(time.time())+900, secret=None)
+		embed.set_image(url=link)
+		return embed
 	else: #By no possible means should this ever happen / But if you end up here, you screwed up
-		file=None
-		return 'code:youscrewedup',file
+		return 'code:youscrewedup'
 
 def resolve_stream_link(link):
 	link = link.split("=")[1] # Temporary eyeballing solution, maybe permanent :)
