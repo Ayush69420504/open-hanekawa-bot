@@ -63,7 +63,7 @@ class Cogs:
 		ctx,keyword = await self.extract_keyword(message)
 		embed = reddit.random_sub_post(keyword)
 		await message.channel.send(embed=embed)
-
+	
 	async def search_subreddits(self, message):
 		'''
 		Uses the reddit json api to query search results for 10 subreddits
@@ -162,7 +162,10 @@ class Cogs:
 		for word in content:
 			query += word + '_'
 		embeds = manganato.search_manga(query)
-		await Paginator.Simple(timeout=600, PreviousButton=self.leftbutton, NextButton=self.rightbutton).start(ctx, pages=embeds)
+		if len(embeds) != 0:
+			await Paginator.Simple(timeout=600, PreviousButton=self.leftbutton, NextButton=self.rightbutton).start(ctx, pages=embeds)
+		else:
+			await message.channel.send("No results :(")
 
 	async def list_chapters(self, message):
 		'''
@@ -216,9 +219,12 @@ class Cogs:
 		try:
 			await message.author.voice.channel.connect()
 			await message.channel.send('Joined: '+str(message.author.voice.channel))
-		except discord.errors.ClientException as e:
-			await message.channel.send('I cannot have more than one instance in guild: '+message.author.guild.name)
-
+		except Exception as e:
+			if type(e).__name__ == "ClientException":
+				await message.channel.send('I cannot have more than one instance in guild: '+message.author.guild.name)
+			elif type(e).__name__ == "AttributeError":
+				await message.channel.send("Not in a voice channel")
+		
 	async def leavevc(self, message):
 		'''
 		Leaves the currently joined voice chat, errors out when no voice channel
@@ -401,7 +407,8 @@ class Cogs:
 		if player_env['Mode'] == 'queue':
 			await message.channel.send(embed=embed)
 			if player_env['IsRunning'] == False:
-				rmqp.play(vc, path)
+				thread = Thread(target=rmqp.play, args=(vc, path, ))
+				thread.start()
 
 	async def play_radio(self, message):
 		'''

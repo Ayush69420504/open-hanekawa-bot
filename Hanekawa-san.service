@@ -6,7 +6,7 @@ After=network.target
 Type=exec
 User=Hanekawa-san
 WorkingDirectory=/home/Hanekawa-san/
-ExecStart=/home/Hanekawa-san/venv/bin/python3 main.py
+ExecStart=/usr/bin/python3 main.py
 Restart=always
 
 [Install]

@@ -912,3 +912,348 @@ asyncio.exceptions.CancelledError
 [2023-11-13 18:04:22,763.763] INFO [140222609276992] - Waiting for application shutdown.
 [2023-11-13 18:04:22,764.764] INFO [140222609276992] - Application shutdown complete.
 [2023-11-13 18:04:22,764.764] INFO [140222609276992] - Finished server process [13019]
+[2023-12-05 00:51:43,604.604] INFO [140512641347648] - Started server process [24713]
+[2023-12-05 00:51:43,606.606] INFO [140512641347648] - Waiting for application startup.
+[2023-12-05 00:51:43,607.607] INFO [140512641347648] - Application startup complete.
+[2023-12-05 00:51:43,607.607] INFO [140512641347648] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-12-05 00:53:11,041.041] INFO [140512641347648] - Shutting down
+[2023-12-05 00:53:11,142.142] INFO [140512641347648] - Waiting for application shutdown.
+[2023-12-05 00:53:11,142.142] INFO [140512641347648] - Application shutdown complete.
+[2023-12-05 00:53:11,143.143] INFO [140512641347648] - Finished server process [24713]
+[2023-12-27 18:07:45,258.258] INFO [140581730811968] - Started server process [14087]
+[2023-12-27 18:07:45,260.260] INFO [140581730811968] - Waiting for application startup.
+[2023-12-27 18:07:45,260.260] INFO [140581730811968] - Application startup complete.
+[2023-12-27 18:07:45,261.261] INFO [140581730811968] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-12-27 18:09:46,782.782] INFO [140581730811968] - Shutting down
+[2023-12-27 18:09:46,883.883] INFO [140581730811968] - Waiting for application shutdown.
+[2023-12-27 18:09:46,884.884] INFO [140581730811968] - Application shutdown complete.
+[2023-12-27 18:09:46,884.884] INFO [140581730811968] - Finished server process [14087]
+[2023-12-27 19:29:29,422.422] INFO [140498190262336] - Started server process [18042]
+[2023-12-27 19:29:29,423.423] INFO [140498190262336] - Waiting for application startup.
+[2023-12-27 19:29:29,423.423] INFO [140498190262336] - Application startup complete.
+[2023-12-27 19:29:29,424.424] INFO [140498190262336] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-12-27 19:31:41,830.830] INFO [140498112243392] - Connecting to voice...
+[2023-12-27 19:31:41,832.832] INFO [140498112243392] - Starting voice handshake... (connection attempt 1)
+[2023-12-27 19:31:42,599.599] INFO [140498112243392] - Voice handshake complete. Endpoint found india9298.discord.media
+[2023-12-27 19:31:56,419.419] INFO [140498112243392] - The voice handshake is being terminated for Channel ID 871600300623015956 (Guild ID 871409808941662281)
+[2023-12-27 19:31:56,424.424] INFO [140498112243392] - Disconnecting from voice normally, close code 1000.
+[2023-12-27 19:44:44,539.539] INFO [140498112243392] - Connecting to voice...
+[2023-12-27 19:44:44,539.539] INFO [140498112243392] - Starting voice handshake... (connection attempt 1)
+[2023-12-27 19:44:45,154.154] INFO [140498112243392] - Voice handshake complete. Endpoint found india9298.discord.media
+[2023-12-27 19:50:58,151.151] INFO [140498076575424] - ffmpeg process 19331 has not terminated. Waiting to terminate...
+[2023-12-27 19:50:58,165.165] INFO [140498076575424] - ffmpeg process 19331 should have terminated with a return code of -9.
+[2023-12-27 20:08:43,764.764] INFO [140498076575424] - ffmpeg process 20075 has not terminated. Waiting to terminate...
+[2023-12-27 20:08:43,772.772] INFO [140498076575424] - ffmpeg process 20075 should have terminated with a return code of -9.
+[2023-12-27 20:17:25,044.044] INFO [140498190262336] - Shutting down
+[2023-12-27 20:17:25,145.145] INFO [140498190262336] - Waiting for application shutdown.
+[2023-12-27 20:17:25,146.146] INFO [140498190262336] - Application shutdown complete.
+[2023-12-27 20:17:25,147.147] INFO [140498190262336] - Finished server process [18042]
+[2023-12-27 20:17:36,215.215] INFO [139642838184000] - Started server process [24535]
+[2023-12-27 20:17:36,215.215] INFO [139642838184000] - Waiting for application startup.
+[2023-12-27 20:17:36,216.216] INFO [139642838184000] - Application startup complete.
+[2023-12-27 20:17:36,217.217] INFO [139642838184000] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-12-27 20:17:38,938.938] INFO [139642760156864] - Connecting to voice...
+[2023-12-27 20:17:38,939.939] INFO [139642760156864] - Starting voice handshake... (connection attempt 1)
+[2023-12-27 20:17:39,517.517] INFO [139642760156864] - Voice handshake complete. Endpoint found india9298.discord.media
+[2023-12-27 20:19:58,820.820] INFO [139642657560256] - ffmpeg process 24608 has not terminated. Waiting to terminate...
+[2023-12-27 20:19:58,828.828] INFO [139642657560256] - ffmpeg process 24608 should have terminated with a return code of -9.
+[2023-12-27 20:22:49,338.338] INFO [139642657560256] - ffmpeg process 24851 has not terminated. Waiting to terminate...
+[2023-12-27 20:22:49,344.344] INFO [139642657560256] - ffmpeg process 24851 should have terminated with a return code of -9.
+[2023-12-27 20:29:33,406.406] INFO [139642657560256] - ffmpeg process 25663 has not terminated. Waiting to terminate...
+[2023-12-27 20:29:33,413.413] INFO [139642657560256] - ffmpeg process 25663 should have terminated with a return code of -9.
+[2023-12-27 20:31:01,962.962] WARNING [139642665952960] - Shard ID None voice heartbeat blocked for more than 10 seconds
+Loop thread traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 995, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 860, in run
+    asyncio.run(runner())
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 640, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 607, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 1922, in _run_once
+    handle._run()
+  File "/usr/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 407, in queue
+    rmqp.play(vc, path)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/rmqp.py", line 91, in play
+    time.sleep(0.1)
+
+[2023-12-27 20:31:11,963.963] WARNING [139642665952960] - Shard ID None voice heartbeat blocked for more than 20 seconds
+Loop thread traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 995, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 860, in run
+    asyncio.run(runner())
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 640, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 607, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 1922, in _run_once
+    handle._run()
+  File "/usr/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 407, in queue
+    rmqp.play(vc, path)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/rmqp.py", line 91, in play
+    time.sleep(0.1)
+
+[2023-12-27 20:31:21,965.965] WARNING [139642665952960] - Shard ID None voice heartbeat blocked for more than 30 seconds
+Loop thread traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 995, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 860, in run
+    asyncio.run(runner())
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 640, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 607, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 1922, in _run_once
+    handle._run()
+  File "/usr/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 407, in queue
+    rmqp.play(vc, path)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/rmqp.py", line 91, in play
+    time.sleep(0.1)
+
+[2023-12-27 20:31:28,496.496] WARNING [139642674345664] - Shard ID None heartbeat blocked for more than 10 seconds.
+Loop thread traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 995, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 860, in run
+    asyncio.run(runner())
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 640, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 607, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 1922, in _run_once
+    handle._run()
+  File "/usr/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 407, in queue
+    rmqp.play(vc, path)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/rmqp.py", line 91, in play
+    time.sleep(0.1)
+
+[2023-12-27 20:31:31,966.966] WARNING [139642665952960] - Shard ID None voice heartbeat blocked for more than 40 seconds
+Loop thread traceback (most recent call last):
+  File "/usr/lib/python3.11/threading.py", line 995, in _bootstrap
+    self._bootstrap_inner()
+  File "/usr/lib/python3.11/threading.py", line 1038, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.11/threading.py", line 975, in run
+    self._target(*self._args, **self._kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 860, in run
+    asyncio.run(runner())
+  File "/usr/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+  File "/usr/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 640, in run_until_complete
+    self.run_forever()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 607, in run_forever
+    self._run_once()
+  File "/usr/lib/python3.11/asyncio/base_events.py", line 1922, in _run_once
+    handle._run()
+  File "/usr/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/client.py", line 441, in _run_event
+    await coro(*args, **kwargs)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 407, in queue
+    rmqp.play(vc, path)
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/rmqp.py", line 91, in play
+    time.sleep(0.1)
+
+[2023-12-27 20:31:38,186.186] INFO [139642838184000] - Shutting down
+[2023-12-27 20:31:38,287.287] INFO [139642838184000] - Waiting for application shutdown.
+[2023-12-27 20:31:38,288.288] INFO [139642838184000] - Application shutdown complete.
+[2023-12-27 20:31:38,288.288] INFO [139642838184000] - Finished server process [24535]
+[2023-12-27 20:33:56,603.603] INFO [139838833213504] - Started server process [26949]
+[2023-12-27 20:33:56,604.604] INFO [139838833213504] - Waiting for application startup.
+[2023-12-27 20:33:56,604.604] INFO [139838833213504] - Application startup complete.
+[2023-12-27 20:33:56,604.604] INFO [139838833213504] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2023-12-27 20:33:59,337.337] INFO [139838755120832] - Connecting to voice...
+[2023-12-27 20:33:59,337.337] INFO [139838755120832] - Starting voice handshake... (connection attempt 1)
+[2023-12-27 20:33:59,943.943] INFO [139838755120832] - Voice handshake complete. Endpoint found india9298.discord.media
+[2023-12-27 20:35:06,155.155] INFO [139838363793088] - ffmpeg process 27032 has not terminated. Waiting to terminate...
+[2023-12-27 20:35:06,163.163] INFO [139838363793088] - ffmpeg process 27032 should have terminated with a return code of -9.
+[2023-12-27 20:35:21,947.947] INFO [139838363793088] - ffmpeg process 27114 has not terminated. Waiting to terminate...
+[2023-12-27 20:35:21,951.951] INFO [139838363793088] - ffmpeg process 27114 should have terminated with a return code of -9.
+[2023-12-27 20:36:45,032.032] INFO [139838833213504] - Shutting down
+[2023-12-27 20:36:45,136.136] INFO [139838833213504] - Waiting for application shutdown.
+[2023-12-27 20:36:45,136.136] INFO [139838833213504] - Application shutdown complete.
+[2023-12-27 20:36:45,137.137] INFO [139838833213504] - Finished server process [26949]
+[2024-02-11 21:15:44,750.750] INFO [139739354755136] - Started server process [7577]
+[2024-02-11 21:15:44,752.752] INFO [139739354755136] - Waiting for application startup.
+[2024-02-11 21:15:44,752.752] INFO [139739354755136] - Application startup complete.
+[2024-02-11 21:15:44,753.753] INFO [139739354755136] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2024-02-11 21:19:05,666.666] INFO [139739354755136] - Shutting down
+[2024-02-11 21:19:05,767.767] INFO [139739354755136] - Waiting for application shutdown.
+[2024-02-11 21:19:05,768.768] INFO [139739354755136] - Application shutdown complete.
+[2024-02-11 21:19:05,768.768] INFO [139739354755136] - Finished server process [7577]
+[2024-02-11 21:19:16,457.457] INFO [140325158793280] - Started server process [7910]
+[2024-02-11 21:19:16,457.457] INFO [140325158793280] - Waiting for application startup.
+[2024-02-11 21:19:16,458.458] INFO [140325158793280] - Application startup complete.
+[2024-02-11 21:19:16,458.458] INFO [140325158793280] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2024-02-11 21:21:50,661.661] INFO [140325158793280] - Shutting down
+[2024-02-11 21:21:50,762.762] INFO [140325158793280] - Waiting for application shutdown.
+[2024-02-11 21:21:50,763.763] INFO [140325158793280] - Application shutdown complete.
+[2024-02-11 21:21:50,764.764] INFO [140325158793280] - Finished server process [7910]
+[2024-02-11 22:34:29,731.731] INFO [140028957753408] - Started server process [12968]
+[2024-02-11 22:34:29,732.732] INFO [140028957753408] - Waiting for application startup.
+[2024-02-11 22:34:29,732.732] INFO [140028957753408] - Application startup complete.
+[2024-02-11 22:34:29,733.733] INFO [140028957753408] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2024-02-11 22:36:31,915.915] INFO [140028957753408] - Shutting down
+[2024-02-11 22:36:32,016.016] INFO [140028957753408] - Waiting for application shutdown.
+[2024-02-11 22:36:32,016.016] INFO [140028957753408] - Application shutdown complete.
+[2024-02-11 22:36:32,016.016] INFO [140028957753408] - Finished server process [12968]
+[2024-02-11 22:36:42,744.744] INFO [139684477337664] - Started server process [13239]
+[2024-02-11 22:36:42,744.744] INFO [139684477337664] - Waiting for application startup.
+[2024-02-11 22:36:42,744.744] INFO [139684477337664] - Application startup complete.
+[2024-02-11 22:36:42,745.745] INFO [139684477337664] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2024-02-11 22:38:04,885.885] INFO [139684399290048] - Connecting to voice...
+[2024-02-11 22:38:04,885.885] INFO [139684399290048] - Starting voice handshake... (connection attempt 1)
+[2024-02-11 22:38:05,463.463] INFO [139684399290048] - Voice handshake complete. Endpoint found india5924.discord.media
+[2024-02-11 22:39:50,857.857] INFO [139684013405888] - ffmpeg process 13454 successfully terminated with return code of 0.
+[2024-02-11 22:41:36,655.655] INFO [139684013405888] - ffmpeg process 13637 has not terminated. Waiting to terminate...
+[2024-02-11 22:41:36,661.661] INFO [139684013405888] - ffmpeg process 13637 should have terminated with a return code of -9.
+[2024-02-11 22:47:19,847.847] INFO [139684477337664] - Shutting down
+[2024-02-11 22:47:19,948.948] INFO [139684477337664] - Finished server process [13239]
+[2024-02-11 22:47:19,953.953] ERROR [139684477337664] - Traceback (most recent call last):
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/starlette/routing.py", line 686, in lifespan
+    await receive()
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/uvicorn/lifespan/on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/asyncio/queues.py", line 158, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[2024-02-11 22:52:39,764.764] INFO [140637961334848] - Started server process [15890]
+[2024-02-11 22:52:39,764.764] INFO [140637961334848] - Waiting for application startup.
+[2024-02-11 22:52:39,764.764] INFO [140637961334848] - Application startup complete.
+[2024-02-11 22:52:39,765.765] INFO [140637961334848] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2024-02-11 22:53:14,144.144] INFO [140637883274944] - Connecting to voice...
+[2024-02-11 22:53:14,144.144] INFO [140637883274944] - Starting voice handshake... (connection attempt 1)
+[2024-02-11 22:53:14,750.750] INFO [140637883274944] - Voice handshake complete. Endpoint found india5924.discord.media
+[2024-02-11 22:54:46,764.764] INFO [140637961334848] - Shutting down
+[2024-02-11 22:54:46,866.866] INFO [140637961334848] - Waiting for application shutdown.
+[2024-02-11 22:54:46,866.866] INFO [140637961334848] - Application shutdown complete.
+[2024-02-11 22:54:46,867.867] INFO [140637961334848] - Finished server process [15890]
+[2024-02-11 22:54:56,854.854] INFO [140184216264768] - Started server process [16224]
+[2024-02-11 22:54:56,854.854] INFO [140184216264768] - Waiting for application startup.
+[2024-02-11 22:54:56,854.854] INFO [140184216264768] - Application startup complete.
+[2024-02-11 22:54:56,855.855] INFO [140184216264768] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2024-02-11 22:55:01,565.565] INFO [140184138225344] - Connecting to voice...
+[2024-02-11 22:55:01,566.566] INFO [140184138225344] - Starting voice handshake... (connection attempt 1)
+[2024-02-11 22:55:02,178.178] INFO [140184138225344] - Voice handshake complete. Endpoint found india5924.discord.media
+[2024-02-11 22:55:46,728.728] INFO [140183885977280] - ffmpeg process 16334 has not terminated. Waiting to terminate...
+[2024-02-11 22:55:46,792.792] INFO [140183885977280] - ffmpeg process 16334 should have terminated with a return code of -9.
+[2024-02-11 22:55:56,577.577] INFO [140183877584576] - ffmpeg process 16438 has not terminated. Waiting to terminate...
+[2024-02-11 22:55:56,578.578] INFO [140183877584576] - ffmpeg process 16438 should have terminated with a return code of -9.
+[2024-02-11 22:56:37,613.613] INFO [140183885977280] - ffmpeg process 16432 has not terminated. Waiting to terminate...
+[2024-02-11 22:56:37,645.645] INFO [140183885977280] - ffmpeg process 16432 should have terminated with a return code of -9.
+[2024-02-11 22:56:39,820.820] INFO [140183898941120] - ffmpeg process 16475 has not terminated. Waiting to terminate...
+[2024-02-11 22:56:39,820.820] INFO [140183898941120] - ffmpeg process 16475 should have terminated with a return code of -9.
+[2024-02-11 22:59:37,379.379] INFO [140183885977280] - ffmpeg process 16473 has not terminated. Waiting to terminate...
+[2024-02-11 22:59:37,393.393] INFO [140183885977280] - ffmpeg process 16473 should have terminated with a return code of -9.
+[2024-02-11 23:00:01,310.310] INFO [140183885977280] - ffmpeg process 16648 has not terminated. Waiting to terminate...
+[2024-02-11 23:00:01,400.400] INFO [140183885977280] - ffmpeg process 16648 should have terminated with a return code of -9.
+[2024-02-11 23:00:04,034.034] INFO [140183898941120] - ffmpeg process 16701 has not terminated. Waiting to terminate...
+[2024-02-11 23:00:04,034.034] INFO [140183898941120] - ffmpeg process 16701 should have terminated with a return code of -9.
+[2024-02-11 23:03:18,570.570] INFO [140183885977280] - ffmpeg process 16699 successfully terminated with return code of 0.
+[2024-02-11 23:06:45,200.200] INFO [140183885977280] - ffmpeg process 17034 successfully terminated with return code of 0.
+[2024-02-11 23:09:11,766.766] INFO [140183885977280] - ffmpeg process 17455 successfully terminated with return code of 0.
+[2024-02-11 23:12:23,581.581] INFO [140183885977280] - ffmpeg process 17749 has not terminated. Waiting to terminate...
+[2024-02-11 23:12:23,593.593] INFO [140183885977280] - ffmpeg process 17749 should have terminated with a return code of -9.
+[2024-02-11 23:15:23,040.040] INFO [140183877584576] - ffmpeg process 18009 has not terminated. Waiting to terminate...
+[2024-02-11 23:15:23,051.051] INFO [140183877584576] - ffmpeg process 18009 should have terminated with a return code of -9.
+[2024-02-11 23:20:29,758.758] INFO [140183877584576] - ffmpeg process 18074 has not terminated. Waiting to terminate...
+[2024-02-11 23:20:29,762.762] INFO [140183877584576] - ffmpeg process 18074 should have terminated with a return code of -9.
+[2024-02-11 23:21:15,232.232] INFO [140184216264768] - 127.0.0.1:38374 - "GET / HTTP/1.1" 200
+[2024-02-11 23:21:15,488.488] INFO [140184216264768] - 127.0.0.1:38374 - "GET /static/css/index.css HTTP/1.1" 200
+[2024-02-11 23:21:15,491.491] INFO [140184216264768] - 127.0.0.1:38382 - "GET /static/scripts/index.js HTTP/1.1" 200
+[2024-02-11 23:21:15,503.503] INFO [140184216264768] - 127.0.0.1:38382 - "GET /static/css/refresh-discordlog.png HTTP/1.1" 200
+[2024-02-11 23:21:15,506.506] INFO [140184216264768] - 127.0.0.1:38374 - "GET /static/css/refresh-errors.png HTTP/1.1" 200
+[2024-02-11 23:21:15,629.629] INFO [140184216264768] - 127.0.0.1:38374 - "GET /favicon.ico HTTP/1.1" 404
+[2024-02-11 23:21:15,749.749] INFO [140184216264768] - 127.0.0.1:38374 - "GET /get-sharedata HTTP/1.1" 200
+[2024-02-11 23:21:15,770.770] INFO [140184216264768] - 127.0.0.1:38374 - "GET /get-helpbook HTTP/1.1" 200
+[2024-02-11 23:21:15,867.867] INFO [140184216264768] - 127.0.0.1:38374 - "GET /get-discordlog HTTP/1.1" 200
+[2024-02-11 23:21:15,973.973] INFO [140184216264768] - 127.0.0.1:38374 - "GET /get-generalerrors HTTP/1.1" 200
+[2024-02-11 23:22:27,121.121] INFO [140184216264768] - 127.0.0.1:40626 - "GET /get-generalerrors HTTP/1.1" 200
+[2024-02-11 23:22:29,560.560] INFO [140184216264768] - 127.0.0.1:40626 - "GET /get-discordlog HTTP/1.1" 200
+[2024-02-11 23:22:31,479.479] INFO [140184216264768] - 127.0.0.1:40626 - "GET /get-discordlog HTTP/1.1" 200
+[2024-02-11 23:22:31,639.639] INFO [140184216264768] - 127.0.0.1:40626 - "GET /get-discordlog HTTP/1.1" 200
+[2024-02-11 23:22:31,814.814] INFO [140184216264768] - 127.0.0.1:40626 - "GET /get-discordlog HTTP/1.1" 200
+[2024-02-11 23:27:51,171.171] INFO [140184216264768] - Shutting down
+[2024-02-11 23:27:51,272.272] INFO [140184216264768] - Waiting for application shutdown.
+[2024-02-11 23:27:51,273.273] INFO [140184216264768] - Application shutdown complete.
+[2024-02-11 23:27:51,273.273] INFO [140184216264768] - Finished server process [16224]
+[2024-02-11 23:28:01,028.028] INFO [139800530526272] - Started server process [19249]
+[2024-02-11 23:28:01,028.028] INFO [139800530526272] - Waiting for application startup.
+[2024-02-11 23:28:01,028.028] INFO [139800530526272] - Application startup complete.
+[2024-02-11 23:28:01,029.029] INFO [139800530526272] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2024-02-11 23:41:52,541.541] INFO [139800530526272] - Shutting down
+[2024-02-11 23:41:52,642.642] INFO [139800530526272] - Waiting for application shutdown.
+[2024-02-11 23:41:52,642.642] INFO [139800530526272] - Application shutdown complete.
+[2024-02-11 23:41:52,643.643] INFO [139800530526272] - Finished server process [19249]
+[2024-02-11 23:42:07,308.308] INFO [140421728174144] - Started server process [20409]
+[2024-02-11 23:42:07,309.309] INFO [140421728174144] - Waiting for application startup.
+[2024-02-11 23:42:07,309.309] INFO [140421728174144] - Application startup complete.
+[2024-02-11 23:42:07,309.309] INFO [140421728174144] - Uvicorn running on http://0.0.0.0:6900 (Press CTRL+C to quit)
+[2024-02-12 00:21:51,667.667] INFO [140421728174144] - Shutting down
+[2024-02-12 00:21:51,771.771] INFO [140421728174144] - Waiting for application shutdown.
+[2024-02-12 00:21:51,772.772] INFO [140421728174144] - Application shutdown complete.
+[2024-02-12 00:21:51,772.772] INFO [140421728174144] - Finished server process [20409]

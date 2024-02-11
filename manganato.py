@@ -1,10 +1,7 @@
 import requests,discord,json
 from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
 #embed_gen contains template functions to generate embeds
 from utils import embed_gen
-from PIL import Image
-from io import BytesIO
 
 defaults = json.load(open('defaults.json', 'r'))
 embed_color = int(defaults['embed_color'], 0)
@@ -19,7 +16,11 @@ def search_manga(keyword):
 		title = manga.h3.a['title']
 		manga_code = manga.h3.a['href']
 		manga_code = manga_code[manga_code.rindex('/')+1:]		
-		latest_chapter = manga.findAll('a', attrs={'class':'item-chapter a-h text-nowrap'})[0].string
+		latest_chapter = manga.findAll('a', attrs={'class':'item-chapter a-h text-nowrap'})
+		if len(latest_chapter) == 0:
+			latest_chapter = "No chapters published"
+		else:
+			latest_chapter = latest_chapter[0].string
 		author_name = manga.findAll('span', attrs={'class':'text-nowrap item-author'})[0]['title']	
 		imurl = manga.img['src']
 		embeds.append(embed_gen.search_manga(title, manga_code, latest_chapter, author_name, imurl))

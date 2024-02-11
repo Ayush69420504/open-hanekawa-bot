@@ -1644,3 +1644,241 @@ Traceback (most recent call last):
 
 IndexError: list index out of range
 
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+          ~~~~~~~~^^^^^^^^^^^^
+
+KeyError: 'whoami'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 424, in play_radio
+    embed = rmqp.play_radio(vc, path, stream_url)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/rmqp.py", line 53, in play_radio
+    data = radio_browser.icy_extract(stream_url)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 18, in icy_extract
+    request = urllib2.Request(url, headers=headers)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 322, in __init__
+    self.full_url = url
+    ^^^^^^^^^^^^^
+
+  File "/usr/lib/python3.11/urllib/request.py", line 348, in full_url
+    self._parse()
+
+  File "/usr/lib/python3.11/urllib/request.py", line 377, in _parse
+    raise ValueError("unknown url type: %r" % self.full_url)
+
+ValueError: unknown url type: ''
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 312, in now_playing
+    embed = embed_gen.now_playing(player_env['Playing'], vc.is_paused())
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/embed_gen.py", line 71, in now_playing
+    t_time = str(timedelta(seconds=round(playing['Duration'])))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TypeError: type NoneType doesn't define __round__ method
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+          ~~~~~~~~^^^^^^^^^^^^
+
+KeyError: 'stop-playing'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 43, in search_playlists
+    embeds = youtube_music.playlist_search(query)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/youtube_music.py", line 34, in playlist_search
+    info = YTMusic().search(query, filter="playlists,albums")[:10]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/ytmusicapi/mixins/search.py", line 141, in search
+    raise Exception(
+
+Exception: Invalid filter provided. Please use one of the following filters or leave out the parameter: albums, artists, playlists, community_playlists, featured_playlists, songs, videos, profiles
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 43, in search_playlists
+    embeds = youtube_music.playlist_search(query)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/youtube_music.py", line 38, in playlist_search
+    author = entry['author']
+             ~~~~~^^^^^^^^^^
+
+KeyError: 'author'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 43, in search_playlists
+    embeds = youtube_music.playlist_search(query)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/youtube_music.py", line 38, in playlist_search
+    author = entry['author']
+             ~~~~~^^^^^^^^^^
+
+KeyError: 'author'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 43, in search_playlists
+    embeds = youtube_music.playlist_search(query)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/youtube_music.py", line 41, in playlist_search
+    author = entry['artist'][0]["name"]
+             ~~~~~^^^^^^^^^^
+
+KeyError: 'artist'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 357, in playlist
+    await message.channel.send(embed=embed)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/abc.py", line 1561, in send
+    data = await state.http.send_message(channel.id, params=params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/venv/lib/python3.11/site-packages/discord/http.py", line 745, in request
+    raise HTTPException(response, data)
+
+discord.errors.HTTPException: 400 Bad Request (error code: 50035): Invalid Form Body
+In embeds.0.fields.0.value: Must be 1024 or fewer in length.
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 349, in playlist
+    playlist,embed = youtube_music.playlist_extract(keyword)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/youtube_music.py", line 13, in playlist_extract
+    description = info['description']
+                  ~~~~^^^^^^^^^^^^^^^
+
+KeyError: 'description'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 349, in playlist
+    playlist,embed = youtube_music.playlist_extract(keyword)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/youtube_music.py", line 18, in playlist_extract
+    if entry.get('thumbnails') == None:
+       ^^^^^
+
+UnboundLocalError: cannot access local variable 'entry' where it is not associated with a value
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+          ~~~~~~~~^^^^^^^^^^^^
+
+KeyError: 'search-radios'
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 315, in now_playing
+    results = radio_browser.now_playing(path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 81, in now_playing
+    link = YTMusic().search(track_name, filter="songs")[0]['thumbnails'][1]['url']
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+
+IndexError: list index out of range
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 315, in now_playing
+    results = radio_browser.now_playing(path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/radio_browser.py", line 81, in now_playing
+    link = YTMusic().search(track_name, filter="songs")[0]['thumbnails'][1]['url']
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+
+IndexError: list index out of range
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 165, in search_manga
+    await Paginator.Simple(timeout=600, PreviousButton=self.leftbutton, NextButton=self.rightbutton).start(ctx, pages=embeds)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/utils/Paginator.py", line 70, in start
+    self.message = await ctx.send(embed=self.pages[self.InitialPage], view=self, ephemeral=self.ephemeral)
+                                        ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+
+IndexError: list index out of range
+
+Traceback (most recent call last):
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/main.py", line 104, in on_message
+    await self.map[content[0]](message)
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/cogs.py", line 164, in search_manga
+    embeds = manganato.search_manga(query)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  File "/home/ayush/Imp-files-of-me/Hanekawa-san/manganato.py", line 19, in search_manga
+    latest_chapter = manga.findAll('a', attrs={'class':'item-chapter a-h text-nowrap'})[0].string
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+
+IndexError: list index out of range
+

@@ -1,6 +1,7 @@
 import discord,operator,json,requests,struct,re,os,random,time
+from ytmusicapi import YTMusic
 from pyradios import RadioBrowser
-from utils import embed_gen,oxo
+from utils import embed_gen
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 try:
@@ -77,8 +78,7 @@ def now_playing(path):
 		embed.add_field(name='Station name', value=data['icy-name'], inline=False)
 		embed.add_field(name='Genre', value=data['icy-genre'], inline=False)
 		embed.add_field(name='Track Name', value=track_name, inline=False)
-		path = 'data/lofi-backgrounds/'+random.choice(os.listdir("data/lofi-backgrounds/"))
-		link = oxo.upload_file_path(path=path, expires=round(time.time())+900, secret=None)
+		link = YTMusic().search(track_name, filter="songs")[0]['thumbnails'][1]['url']
 		embed.set_image(url=link)
 		return embed
 	else: #By no possible means should this ever happen / But if you end up here, you screwed up

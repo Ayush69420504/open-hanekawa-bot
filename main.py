@@ -61,6 +61,13 @@ class MyBot(commands.Bot, cogs.Cogs):
 			helpbook[key] = str(self.map[key].__doc__)
 		return helpbook
 	
+	def write_error(self):
+		exceptions = traceback.format_exception(*sys.exc_info())
+		err = ''
+		for exception in exceptions:
+			err += exception + '\n'
+		open('logs/general_errors.log', 'a').write(err)
+	
 	async def extract_query(self, message):
 		ctx = await self.get_context(message)
 		content = message.content.split(" ")[2:]
@@ -98,34 +105,19 @@ class MyBot(commands.Bot, cogs.Cogs):
 				except Exception as e:
 					if type(e).__name__ == 'AttributeError':
 						match = False
-						if content[0] == tally_list[0]:
-							await message.channel.send("Not in a voice channel")
-						else:
-							for tally in tally_list:
-								if content[0] == tally:
-									match = True
-									await message.channel.send('I am not connected to your voice channel!')
-									break
-							if match == False:
-								exceptions = traceback.format_exception(*sys.exc_info())
-								err = ''
-								for exception in exceptions:
-									err += exception + '\n'
-								open('logs/general_errors.log', 'a').write(err)
-								await message.channel.send('Something went wrong, try again or use different arguments!')
+						for tally in tally_list:
+							if content[0] == tally:
+								match = True
+								await message.channel.send('I am not connected to your voice channel!')
+								break
+						if match == False:
+							self.write_error()
+							await message.channel.send('Something went wrong, try again or use different arguments!')
 					elif type(e).__name__ == 'KeyError':
-						exceptions = traceback.format_exception(*sys.exc_info())
-						err = ''
-						for exception in exceptions:
-							err += exception + '\n'
-						open('logs/general_errors.log', 'a').write(err)
+						self.write_error()
 						await message.channel.send('User-kun I don\'t know what that command means (*＞ω＜*)')
 					else:
-						exceptions = traceback.format_exception(*sys.exc_info())
-						err = ''
-						for exception in exceptions:
-							err += exception + '\n'
-						open('logs/general_errors.log', 'a').write(err)
+						self.write_error()
 						await message.channel.send('Something went wrong, try again or use different arguments!')
 
 			activity = discord.Activity(type=discord.ActivityType.listening, name='!ara')
