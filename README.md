@@ -2,7 +2,7 @@ This is the open source public release of Hanekawa-san, my discord bot.
 
 The original code is closed off in a private repo, and is basically my archive
 
-Version : 1.1.5 Release Date: 11/02/23
+Version : 1.1.5 Release Date: 11/02/24
 
 Updated from : ver 1.420 Release Date: 14/11/23
 
