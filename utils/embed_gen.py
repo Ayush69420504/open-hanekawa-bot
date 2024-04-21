@@ -5,6 +5,13 @@ from utils import oxo
 defaults = json.load(open('defaults.json', 'r'))
 embed_color = int(defaults['embed_color'], 0)
 
+def generate_error(error, actions, _uuid):
+	embed = discord.Embed(title="Oops something seems to have gone wrong!", color=0xFF0000)
+	embed.add_field(name="Error UUID", value=_uuid, inline=False)
+	embed.add_field(name="Error message", value=error, inline=False)
+	embed.add_field(name="Possible actions", value=actions, inline=False)
+	return embed
+
 def search_stations(icy_name, icy_genre, icy_url, icy_stream_url):
 	embed = discord.Embed(title=icy_name, color=embed_color)
 	embed.add_field(name=icy_genre, value="", inline=False)
@@ -28,14 +35,6 @@ def play_radio(icy_name, icy_genre, icy_url):
 	if icy_url != "":
 		embed.add_field(name='Website', value=icy_url, inline=False)
 	return embed
-
-def search_manga(title, manga_code, latest_chapter, author_name, imurl):
-	embed = discord.Embed(title=title, color=embed_color)
-	embed.add_field(name='Manga Code', value=manga_code, inline=False)
-	embed.add_field(name='Latest Chapter', value=latest_chapter, inline=False)
-	embed.add_field(name='Author Name', value=author_name, inline=False)
-	embed.set_image(url=imurl)
-	return embed
 	
 def help(helpbook):
 	embeds = []
@@ -52,9 +51,10 @@ def help(helpbook):
 			embed.add_field(name=key, value=helpbook[key], inline=False)
 		embeds.append(embed)
 	embed = discord.Embed(color=embed_color)
-	for key in key_list[intervals*5:len(key_list)]:
-		embed.add_field(name=key, value=helpbook[key], inline=False)
-	embeds.append(embed)
+	if len(key_list) % 5 != 0:
+		for key in key_list[intervals*5:len(key_list)]:
+			embed.add_field(name=key, value=helpbook[key], inline=False)
+		embeds.append(embed)
 	return embeds
 
 def list_queue(music_queue):

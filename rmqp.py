@@ -25,7 +25,7 @@ def play_list(vc, path):
 	player_env = json.load(open(path+'/player_env.json', 'r'))
 	if len(playlist) != 0:
 		stream_url = YoutubeDL(params=YTDL_PARAMS).extract_info(url=playlist[0]['VideoId'], download=False)['url']
-		source = discord.FFmpegPCMAudio(stream_url, **FFMPEG_OPTIONS)
+		source = discord.FFmpegPCMAudio(stream_url, executable='bin/ffmpeg', **FFMPEG_OPTIONS)
 		source = discord.PCMVolumeTransformer(source)
 		source.volume = player_env['Volume'][1]/100
 		vc.play(source) 
@@ -54,7 +54,7 @@ def play_radio(vc, path, stream_url):
 	player_env = json.load(open(path+'/player_env.json', 'r'))
 	if data != 'timeout':
 		embed = embed_gen.play_radio(data['name'], data['genre'], data['url'])
-		source = discord.FFmpegPCMAudio(stream_url, **FFMPEG_OPTIONS)
+		source = discord.FFmpegPCMAudio(stream_url, executable='bin/ffmpeg', **FFMPEG_OPTIONS)
 		source = discord.PCMVolumeTransformer(source)
 		source.volume = player_env['Volume'][1]/100
 		player_env['Playing']['Title'] = data['name']
@@ -76,7 +76,7 @@ def play(vc, path):
 	music_queue = json.load(open(path+'/music_queue.json', 'r'))
 	player_env = json.load(open(path+'/player_env.json', 'r'))
 	if len(music_queue) != 0:
-		source = discord.FFmpegPCMAudio(music_queue[0]['Url'], **FFMPEG_OPTIONS)
+		source = discord.FFmpegPCMAudio(music_queue[0]['Url'], executable='bin/ffmpeg', **FFMPEG_OPTIONS)
 		source = discord.PCMVolumeTransformer(source)
 		source.volume = player_env['Volume'][1]/100
 		vc.play(source) 

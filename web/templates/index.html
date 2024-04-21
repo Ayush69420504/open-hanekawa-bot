@@ -2,15 +2,15 @@
 <html>
 <head>
 	<title>Discord-Bot-Admin-Page</title>
-	<link rel='stylesheet' href="{{ url_for('static', path='css/index.css') }}"></link>
+	<link rel='stylesheet' href="/static/css/index.css"></link>
 </head>
 <body onload='start()'>
 	<div id="container">
 		<div id="gist">
 			<div id="sharedata" style="float:left; width:80%;"></div>
 			<div style="float:right; width:20%;">
-				<button id='logbutton' onclick='refreshlog()'><img src="{{ url_for('static', path='css/refresh-discordlog.png') }}"></button>
-				<button id="errorbutton" onclick="refreshErrors()"><img src="{{ url_for('static', path='css/refresh-errors.png') }}"></button>
+				<button id='logbutton' onclick='refreshlog()'><img src="/static/css/refresh-discordlog.png"></button>
+				<button id="errorbutton" onclick="refreshErrors()"><img src="/static/css/refresh-errors.png"></button>
 			</div>
 		</div>
 		<div id="functions"><h3>Functions HelpBook</h3><h3>Syntax: !ara (command) (data, data, ...) //data is seperated by spaces</h3></div>
@@ -20,5 +20,5 @@
 		<div id="general-errors"></div>
 	</div>
 </body>
-<script src="{{ url_for('static', path='scripts/index.js') }}"></script>
+<script src="/static/scripts/index.js"></script>
 </html>
