@@ -1,44 +1,32 @@
 Open source release of Hanekawa-san, my private discord bot
 
-The original code is in a private repo, this is commit #25 adapted to public use.
+The original code is in a private repo, this is commit #37 adapted to public use.
 
-Version : 1.2.0 release date: 22/04/24
+Version : 1.2.3 release date: 08/08/24
 
-Updated from : ver 1.1.5 release date: 11/02/24
+Updated from : ver 1.2.0 release date: 22/04/24 Commit #25
 
 Note: If you only care for functionality refer to Functions.md
 Note: If you want to develop but are lost with the architecture of the system refer to How_to_develop.md
 
-Changes :- This is the final update necessary for my intended goals of the public release.
-1. A lot has changed so bear with me.
-2. Functionality changes
- = Removed gnupg encryption because it's use case does not fit intended security
- = Dockerised the program, users can create a docker container using the provided docker file. Size should be around 500-600 MB on disk
- = Added ego's, a ego is a codename which tells the bot class which bot to load and changes prefix commands accordingly. Rest of user interaction is same.
- = Removed manganato.py and added jikan.py which uses the jikan api to query MAL databases. https://docs.api.jikan.moe/
- = Improved error messages, now errors are logged with uuid's so user's can report errors.
- = Improved the usability of paginated embeds, with the error of losing persistence fixed.
-3. API changes
- = Completly redone metrics, logging and error handling. Now every function MUST (a suggestion) be wrapped in two provided wrappers or make your own.
-  - @general_error_handelr and @music_error_handler are the two wrappers, aside from handling common errors it logs, reports improved messages to user, handles special
-    cases (definition upto you), and finally does a performance logging for total function calls, cpu|io|usr time, and first 15 stacks.
- = ego's are handeled through defaults.json file. You must save a prefix for said ego. Eg: "ego" : "patient-bug" needs "prefix_patinet-bug" : "<prefix>" to be defined in the defaults.json
- = Removed old Paginator.py which was a custom handler in favor of dpy-paginator a publicly maintained PyPi package with regular updates, by default it uses the emojis provided
- by the package, but can be changed. default.json has a empty buttons array in order that can be filled like this [left-skip, left, right, right-skip]. Then self.buttons can be provied as a argument
- to the paginate function of dpy-paginator library. Buttons need to be in "<:name:id>" or UNICODE_EMOJI format. Pretty usefull if ya ask me lol.
- = Webserver's index.js now directly calls the static library api instead of a runtime resolution to support cases where localhost is unavailable.
- = Logging is done using cProfile, if not avilable use Profile, the bot by default has it's own profiler under self.profiler that you can use.
- = Dev side has reached my desired level of reproducibility, upgradibility, and readability. I am not going to post further updates this year, at least not on the public release. Hence the bumped version.
- = FFMPEG static is now used. The dockerfile automatically updates the static binary for architecture. By default amd64 binaries are available in the sources and bin folder, i have provided two source
- johnvansickle and mwader's binaries. https://www.johnvansickle.com/ffmpeg/ and https://hub.docker.com/r/mwader/static-ffmpeg/ .
+Changes :- Fixing the errors that came with ver 1.2.0 plus backend overhaul for music and webserver and logging.
+1. Logging is still present but function memory stacks are no longer logged and no profiler exists. The issuses were more than the results. They are removed
+2. Program start flows are changed, each step wrapped under a func and neatly packed into a async coroutine run under uvloop, for performance improvements.
+-> Logs archival and processing -> Initialise bot class -> Asyncronously call bot class and webserver class.
+3. Logging finally has archives, that are stored in a nested backups folder with the date and time mentioned
+4. Youtube Music has been changed. Now it queries all its data from invidious instances resolved at boot, and updated every hour, they are sorted by lowest latency.
+5. Radio Browser is revamped. Web scrapping internet-radios.com is stupid so ditched in favour of all.api.radio-browser.com. which has a huge library of json lists.
+6. Two huge dependecies yt-dlp and beautifull soup 4 are ditched so significantly lighter i guess.
+7. Uvicorn is ditched, reducing another big dependecy. Now it uses aiohttp lib's AppRunner class to run a async TCP site. Added new invidious log endpoint.
+8. Music player is now asynchronous instead of multi threaded. Makes it smoother, less prone to errors. And is better than my old solution that i forgor to update :).
+9. Stats reporting through bot added for jikan, invidious and radio-browser.
+10. Is actually usable right out of box compared to previous release.
 
 How to run :-
 1. Barebones
  = Create a venv or not, i do not care. requirements.txt contains all libraries needed. Check the proper architecture for ffmpeg-static. defaults.json must be set with a ego, prefix and proper token be written to respective token file.
 2. Docker
  = Set the ego, prefix, auth_token for your bot. And buid the image. Size should be around 500-600 MB on disk. Port 6900 is to be exposed, no other requirements.
-
-Final Thoughts: Final release for 2024, expect no new updates this year.
 
 Note: The data available in data folder is free to use :)
 

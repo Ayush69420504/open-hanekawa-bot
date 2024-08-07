@@ -1,6 +1,6 @@
 async function refreshlog() {
 	//Refreshes the discord logs
-	response = await fetch("/get-discordlog")
+	response = await fetch("/log/discord")
 	logs = await response.json()
 	log_container = document.getElementById("discord-logs")
 	i = 0
@@ -13,7 +13,7 @@ async function refreshlog() {
 }
 async function refreshErrors() {
 	//Refreshes general_errors
-	response = await fetch("/get-generalerrors")
+	response = await fetch("/log/errors")
 	errors = await response.json()
 	error_container = document.getElementById("general-errors")
 	i = 0
@@ -24,11 +24,19 @@ async function refreshErrors() {
 	}
 	error_container.scrollTo(0, error_container.scrollHeight)
 }
-async function render_helpbook() {
-	//Loads the helpbook
-	response = await fetch("/get-helpbook")
-	helpbook = await response.json()
+async function render_status() {
+	//Loads the helpbook and sharedata from the status endpoint
+	response = await fetch("/api/status")
+	data = await response.json()
+	sharedata_container = document.getElementById("sharedata")
+	sharedata_container.innerHTML += "<h2>Logged in as "+data["bot_name"]+"</h2>"
+	sharedata_container.innerHTML += "<h2>Using ego "+data["bot_ego"]+"</h2>"
+	sharedata_container.innerHTML += '<h2>Currently serving '+data['num_guilds']+' guilds</h2>'
+	sharedata_container.innerHTML += "<h2>Has "+data['num_functions']+" functions</h2>"
+	sharedata_container.innerHTML += "<h2>Working Directory : "+data['workdir']+"</h2>"
+	helpbook = data['helpbook']
 	helpbook_container = document.getElementById("functions")
+	helpbook_container.innerHTML += "<h3>Syntax: "+data['ego_prefix']+" (command) (data, data, ...) //data is seperated by spaces</h3>"
 	keys = Object.keys(helpbook)
 	i = 1
 	for (key of keys)
@@ -39,19 +47,8 @@ async function render_helpbook() {
 		i++
 	}
 }
-async function render_sharedata() {
-	//Loads share data
-	response = await fetch("/get-sharedata")
-	sharedata = await response.json()
-	sharedata_container = document.getElementById("sharedata")
-	sharedata_container.innerHTML += "<h2>Logged in as "+sharedata['bot_name']+"</h2>"
-	sharedata_container.innerHTML += "<h2>Currently serving "+sharedata['num_guilds']+" guilds</h2>"
-	sharedata_container.innerHTML += "<h2>Has "+sharedata['num_functions']+" functions</h2>"
-	sharedata_container.innerHTML += "<h2>Working Directory : "+sharedata['workdir']+"</h2>"
-}
 async function start() {
-	await render_sharedata()
-	await render_helpbook()
+	await render_status()
 	await refreshlog()
 	await refreshErrors()
 }

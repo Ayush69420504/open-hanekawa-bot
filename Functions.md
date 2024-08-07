@@ -3,7 +3,7 @@ Hanekawa-san is a multipurpose discord bot, it has multimedia functions and no a
 I must clarify that in no way i intend to turn this into a moderation bot. But if the bot requires admin privliges,
 a developer can add such functions, Refer to How_to_develop.md
 
-Functions as of version 1.2.0
+Functions as of version 1.2.3
 
 Total: 35 functions
 
@@ -88,64 +88,59 @@ Searches 10 playlists from Youtube
 Accepts : query
 Returns : Paginated Embed
 
-17. search-pyradios
-Queries radio database in pyradios,
+17. search-radios
+Queries radio database in https://all.api.radio-browser.info,
 Accepts : query
 Returns : Paginated Embed
 
-18. search-internet-radios
-Queries radio database in https://www.internet-radio.com/,
-Accepts : query
-Returns : Paginated Embed
-
-19. joinvc
+18. joinvc
 Joins the voice chat of user, errors out if no voice channel,
 Accepts : None
 Returns : Text
 
-20. leavevc
+19. leavevc
 Leaves the currently joined voice chat, errors out when no voice channel
 Accepts : None
 Returns : Text
 
-21. pause
+20. pause
 Pauses the music player of guild,
 Accepts : None
 Returns : Text
 
-22. resume
+21. resume
 Resumes the music player in guild,
 Accepts : None
 Returns : Text
 
-23. reset-env
+22. reset-env
 Resets the player_env.json music_queue.json playlist.json of a guild
 Accepts : None
 Returns : Text (String)
 
-24. current-volume
+23. current-volume
 Returns the saved volume setting for a particular guild,
 Accepts : None
 Returns : Text (String) : Text (int)
 
-25. volume
+24. volume
 Sets the volume of a particular guild, this is saved,
 Accepts : keyword (int)
 Returns : Conformation message (Text/String)
 
-26. now-playing
+25. now-playing
 Shows the currently playing track in queue or the radio stream,
 Requires : Queue Mode or Radio Mode
 Accepts : None
 Returns : Embed
 
-27. skip-track
+26. skip-track
 Skips playing track in queue, removes it from list and moves on to next,
 Requires : Queue Mode
 Accepts : None
 Returns : Conformation Embed
 
-28. queue
+27. queue
 accepts a query, searches in soundcloud and add it the guild's music playlist,
 if playing, it will be added to queue,
 if paused, it will be added to queue and music player will be started
@@ -153,45 +148,45 @@ Requires : Queue Mode or Radio Mode
 Accepts : query
 Returns : Embed
 
-29. playlist
+28. playlist
 Accepts a playlist-id that is supplied from search-playlists and uses it to create a music queue
 If other modes on, then it will stop them and start "playlist" mode
 Requires : Any Mode
 Accepts : keyword (playlist-id)
 Returns : Embed
 
-30. stop-playlist
+29. stop-playlist
 Stops the currently playing playlist, this method should be reffered instead of a drop_queue
 like system of stopping in case of playlists
 Requires : Queue Mode
 Accepts : None
 Returns : Text
 
-31. play-radio
+30. play-radio
 Plays a radio station on basis of it's stream url, that can be obtained from search_radios,
 Requires : Queue Mode or Radio Mode
 Accepts : keyword
 Returns : Embed
 
-32. stop-radio
+31. stop-radio
 Stops the radio player and switches to queue mode,
 Requires : Queue Mode
 Accepts : None
 Returns : Text
 
-33. list-queue
+32. list-queue
 Lists queue in queue mode
 Requires :: Queue Mode
 Accepts : None
 Returns : Embed
 
-34. drop-queue
+33. drop-queue
 Drops the music queue and stops music player in queue mode,
 Requires : Queue Mode
 Accepts : None
 Returns : Text
 
-35. hackernews
+34. hackernews
 Searches hackernews by topstories/beststories/newstories,
 Accepts : keyword
 Returns : Paginated Embed

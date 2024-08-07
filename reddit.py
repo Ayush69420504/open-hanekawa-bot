@@ -1,5 +1,5 @@
-import requests,json,discord,time
-from utils import embed_gen,oxo
+import aiohttp,json,discord,random
+from utils import embed_gen,OxO
 from fake_useragent import UserAgent
 
 ua = UserAgent()
@@ -7,10 +7,12 @@ headers = {'User-Agent':ua.firefox}
 defaults = json.load(open('defaults.json', 'r'))
 embed_color = int(defaults['embed_color'], 0)
 
-def search_reddit_posts(query):
+async def search_reddit_posts(query):
 	url = 'https://www.reddit.com/search.json?q='+query
-	page = requests.get(url, headers=headers)
-	children = json.loads(page.content)['data']['children'][:10]
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	children = (await page.json())['data']['children'][:10]
+	await session.close()
 	embeds = []
 	for child in children:
 		sub_name = child['data']['subreddit_name_prefixed'] 
@@ -27,10 +29,12 @@ def search_reddit_posts(query):
 		embeds.append(embed)
 	return embeds
 
-def search_subreddits(query):
+async def search_subreddits(query):
 	url = 'https://www.reddit.com/search/.json?q='+query+'&type=sr'
-	page = requests.get(url, headers=headers)
-	children = json.loads(page.content)['data']['children'][:10]
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	children = (await page.json())['data']['children'][:10]
+	await session.close()
 	embeds = []
 	for child in children:
 		name = child['data']['display_name_prefixed']
@@ -44,12 +48,14 @@ def search_subreddits(query):
 		embeds.append(embed)
 	return embeds
 
-def random_sub_post(keyword):
-	url = 'https://www.reddit.com/r/'+keyword+'/random.json'
-	page = requests.get(url, headers=headers)
-	data = json.loads(page.content)
+async def random_sub_post(keyword):
+	url = 'https://www.reddit.com/r/'+keyword+'/.json'
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	data = (await page.json())['data']['children']
+	await session.close()
 	if isinstance(data, list):
-		children_data = data[0]['data']['children'][0]['data']
+		children_data = data[random.randrange(0, len(data)-1)]['data']
 		sub_name = children_data['subreddit_name_prefixed']
 		post_title = children_data['title']
 		if children_data.get('url_overridden_by_dest') != None:
@@ -63,6 +69,6 @@ def random_sub_post(keyword):
 	else:
 		embed = discord.Embed(title="No results found", color=embed_color)
 		embed.add_field(name='How to solve error', value='Use search-reddit to search an approprtiate name and input it in the command', inline=False)
-		link = oxo.upload_file_path(path='data/error.gif', expires=round(time.time()+900), secret=None)
-		embed.set_image(url=link)
+		url = await OxO.upload(fp='data/error.gif', expires=600)
+		embed.set_image(url=url)
 		return embed

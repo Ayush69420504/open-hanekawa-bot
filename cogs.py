@@ -1,6 +1,8 @@
-import discord,json,shutil,decorator,pstats
+import discord,json,shutil,decorator,aiohttp,asyncio,logging,socket,random
 from dpy_paginator import paginate
-from threading import Thread
+from fake_useragent import UserAgent
+ua = UserAgent()
+headers = {'User-Agent':ua.firefox}
 
 #hackernews.py uses the https://hacker-news.firebaseio.com/v0/ api to get news!
 import hackernews
@@ -8,7 +10,7 @@ import hackernews
 import reddit
 #hostinfo.py having the function to return formatted data regarding system info
 from utils import hostinfo
-#soundcloud_music.py having youtube music playback capability
+#youtube_music.py having youtube music playback capability
 from utils import youtube_music
 #radio_browser.py is an abstraction of the RadioBrowserApi in python using pyradios
 from utils import radio_browser
@@ -22,52 +24,163 @@ from utils import embed_gen
 from utils import defaults_generator
 
 class Cogs:
-	
-	leftbutton = None
-	rightbutton = None
+
+	buttons = None
+	invidious_instances = []
+	RB_instances = []
+	current_invidious_instance = None
 
 	@decorator.decorator
 	async def general_error_handler(coro, self, message):
 		actions = "For errors originating from human nature, please try fixing them yourself.\nFor more technical errors since these are recorded, report with uuid to the bot's admin or you may contact the dev.\nNote: It is not guranteed that the dev or admin will always have access to the logs :)"
 		try:
-			self.profiler.enable()
 			await coro(self, message)
-			self.profiler.disable()
-			self.profiler.dump_stats('logs/profiler.prof')
-			stream = open('logs/profiler.log', 'a')
-			stats = pstats.Stats('logs/profiler.prof', stream=stream)
-			stats.sort_stats('cumtime')
-			stats.print_stats(15)
 		except Exception as e:
-			_uuid = self.write_error()
+			_uuid = await self.write_error()
 			embed = embed_gen.generate_error(str(e), actions, _uuid)
 			await message.channel.send(embed=embed)
 	
 	@decorator.decorator
 	async def music_error_handler(coro, self, message):
 		try:
-			self.profiler.enable()
 			await coro(self, message)
-			self.profiler.disable()
-			self.profiler.dump_stats('logs/profiler.prof')
-			stream = open('logs/profiler.log', 'a')
-			stats = pstats.Stats('logs/profiler.prof', stream=stream)
-			stats.sort_stats('cumtime')
-			stats.print_stats(15)
 		except AttributeError:
-			_uuid = self.write_error()
+			_uuid = await self.write_error()
 			actions = 'This error is most likely caused by you not being in a voice channel !\nIf this is not the case, it is logged so report the error with uuid'
 			embed = embed_gen.generate_error("No connected voice channel found!", actions, _uuid)
 			await message.channel.send(embed=embed)
 		except Exception as e:
-			_uuid = self.write_error()
+			_uuid = await self.write_error()
 			actions = "For errors originating from human nature, please try fixing them yourself.\nFor more technical errors since these are recorded, report with uuid to the bot's admin or you may contact the dev.\nNote: It is not guranteed that the dev or admin will always have access to the logs :)"
 			embed = embed_gen.generate_error(str(e), actions, _uuid)
 			await message.channel.send(embed=embed)
 
+	async def resolve_invidious_instances_onboot(self):
+		while True:
+			invidious_logger = logging.getLogger('invidious')
+			invidious_logger.setLevel(logging.DEBUG)
+			invidious_handler = logging.FileHandler(filename="logs/invidious.log", encoding="utf-8", mode="w")
+			invidious_handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+			invidious_logger.addHandler(invidious_handler)
+			link = 'https://api.invidious.io/instances.json'
+			session = aiohttp.ClientSession()
+			page = await session.get(url=link, headers=headers)
+			entries = await page.json()
+			invidious_logger.debug('Testing available invidious instances for valid endpoints')
+			for entry in entries:
+				if entry[1]['cors'] == True and entry[1]['api'] == True:
+					t1,t2,t3 = 0,0,0
+					invidious_logger.debug(entry[0]+" has cors and api available")
+					link = 'https://'+entry[0]
+					t1 = asyncio.get_event_loop().time()
+					try:
+						res = await session.get(url=link+'/api/v1/stats', headers=headers, timeout=3)
+					except:
+						invidious_logger.error('Timed out after 2 seconds, unacceptable for api, skipping')
+						continue
+					if res.status == 200:
+						t1 = asyncio.get_event_loop().time() - t1
+						invidious_logger.debug('/api/v1/stats endpoint works, elapsed: '+str(t1))
+					else:
+						invidious_logger.error('Failed, skipping')
+						continue
+					t2 = asyncio.get_event_loop().time()
+					try:
+						res = await session.get(url=link+'/api/v1/videos/y2XArpEcygc', headers=headers, timeout=3)
+					except:
+						invidious_logger.error('Timed out after 2 seconds, unacceptable for api, skipping')
+						continue
+					if res.status == 200:
+						t2 = asyncio.get_event_loop().time() - t2
+						invidious_logger.debug('/api/v1/videos/:id endpoint works, elapsed: '+str(t2))
+					else:
+						invidious_logger.error('Failed, skipping')
+						continue
+					stream_url = (await res.json())['adaptiveFormats'][1]['url']
+					stream_url = link+'/videoplayback'+stream_url.split('videoplayback')[1]
+					t3 = asyncio.get_event_loop().time()
+					res = await session.get(url=stream_url, headers=headers)
+					if res.status == 200:
+						t3 = asyncio.get_event_loop().time() - t3
+						invidious_logger.debug('/videoplayback streaming endpoint works, elapsed: '+str(t3))
+					else:
+						invidious_logger.error('Failed, skipping')
+						continue
+					avg_latency = (t1+t2+t3)/3
+					invidious_logger.debug('Avg latency: '+str(avg_latency))
+					self.invidious_instances.append({"hostname" : link, "avg_latency" : avg_latency})
+					invidious_logger.debug(entry[0]+" fully checked and added")
+				else:
+					invidious_logger.error(entry[0]+' has no cors and api available')
+			await session.close()
+			self.invidious_instances.sort(key=lambda x : x['avg_latency'], reverse=False)
+			self.current_invidious_instance = self.invidious_instances[0]
+			defaults = json.load(open("defaults.json", "r"))
+			defaults['current-invidious-instance'] = self.current_invidious_instance['hostname']
+			json.dump(defaults, open('defaults.json', 'w'))
+			invidious_logger.debug('Working instances resolved and added')
+			invidious_logger.debug('Currently set instance : '+self.current_invidious_instance['hostname'])
+			invidious_logger.debug('Avg latency : '+str(self.current_invidious_instance['avg_latency']))
+			await asyncio.sleep(3600)
+	
+	async def rDNS_lookup_RB_api(self):
+		"""
+		Get all base urls of all currently available radiobrowser servers
+		
+		"""
+		
+		hosts = []
+		# get all hosts from DNS
+		ips = socket.getaddrinfo('all.api.radio-browser.info', 80, 0, 0, socket.IPPROTO_TCP)
+		for ip_tupple in ips:
+			ip = ip_tupple[4][0]
+
+			# do a reverse lookup on every one of the ips to have a nice name for it
+			host_addr = socket.gethostbyaddr(ip)
+			# add the name to a list if not already in there
+			if host_addr[0] not in hosts:
+				hosts.append(host_addr[0])
+
+		# sort list of names
+		hosts.sort()
+		# add "https://" in front to make it an url
+		self.RB_instances = list(map(lambda x: "https://" + x, hosts))
+		print(self.RB_instances)
+		await asyncio.sleep(3600)
+
 	def __init__(self, defaults):
-		self.leftbutton = discord.ui.Button(emoji=self.get_emoji(defaults['leftbutton']))
-		self.rightbutton = discord.ui.Button(emoji=self.get_emoji(defaults['rightbutton']))
+		self.buttons = defaults['buttons']
+	
+	@general_error_handler
+	async def report_RB_stats(self, message):
+		'''
+		Reports the stats of all Radio Browser instances
+		Accepts : None
+		Returns : Embed
+		'''
+		embeds = await radio_browser.stats(self.RB_instances)
+		output = paginate(embeds=embeds, timeout=600)
+		await message.channel.send(embed=output.embed, view=output.view)
+		
+	@general_error_handler
+	async def report_jikan_stats(self, message):
+		'''
+		Reports the stats of the jikan rest api
+		Accepts : None
+		Returns : Embed
+		'''
+		embed = await jikan.health_jikan()
+		await message.channel.send(embed=embed)
+
+	@general_error_handler
+	async def report_invidious_stats(self, message):
+		'''
+		Reports the current invidious instance being used and its stats
+		Accepts : None
+		Returns : Embed
+		'''
+		embed = await youtube_music.current_invidious_instance()
+		await message.channel.send(embed=embed)
 
 	@general_error_handler
 	async def search_playlists(self, message):
@@ -77,7 +190,7 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = youtube_music.playlist_search(query)
+		embeds = await youtube_music.playlist_search(query)
 		output = paginate(embeds=embeds, timeout=600)
 		await message.channel.send(embed=output.embed, view=output.view)
 
@@ -89,7 +202,7 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = reddit.search_reddit_posts(query)
+		embeds = await reddit.search_reddit_posts(query)
 		output = paginate(embeds=embeds, timeout=600)
 		await message.channel.send(embed=output.embed, view=output.view)
 
@@ -102,7 +215,7 @@ class Cogs:
 		Returns : Sucess Embed or Error Embed
 		'''
 		ctx,keyword = await self.extract_keyword(message)
-		embed = reddit.random_sub_post(keyword)
+		embed = await reddit.random_sub_post(keyword)
 		await message.channel.send(embed=embed)
 	
 	@general_error_handler
@@ -113,19 +226,20 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = reddit.search_subreddits(query)
+		embeds = await reddit.search_subreddits(query)
 		output = paginate(embeds=embeds, timeout=600)
 		await message.channel.send(embed=output.embed, view=output.view)
 		
 	@general_error_handler
-	async def search_radio_1(self, message):
+	async def search_radio(self, message):
 		'''
-		Queries radio database in pyradios,
+		Queries radio database in all.api.radio-browser.info,
 		Accepts : query
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = radio_browser.search_stations(query)
+		instance = random.choice(self.RB_instances)
+		embeds = await radio_browser.search_stations(query, instance)
 		if len(embeds) != 0:
 			output = paginate(embeds=embeds, timeout=600)
 			await message.channel.send(embed=output.embed, view=output.view)
@@ -140,11 +254,11 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_keyword(message)
-		results = hackernews.gate(query)
+		results = await hackernews.gate(query)
 		if type(results) is str:
 			await message.channel.send(results)
 		elif type(results) is list:
-			output = paginate(embeds=embeds, timeout=600)
+			output = paginate(embeds=results, timeout=600)
 			await message.channel.send(embed=output.embed, view=output.view)
 
 	@general_error_handler
@@ -155,7 +269,7 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx = await self.get_context(message)
-		embeds = embed_gen.help(self.helpbook)
+		embeds = await embed_gen.help(self.helpbook)
 		output = paginate(embeds=embeds, timeout=600)
 		await message.channel.send(embed=output.embed, view=output.view)
 	
@@ -211,7 +325,7 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = jikan.search_people(query)
+		embeds = await jikan.search_people(query)
 		if len(embeds) != 0:
 			output = paginate(embeds=embeds, timeout=600)
 			await message.channel.send(embed=output.embed, view=output.view)
@@ -226,7 +340,7 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = jikan.search_magazines(query)
+		embeds = await jikan.search_magazines(query)
 		if len(embeds) != 0:
 			output = paginate(embeds=embeds, timeout=600)
 			await message.channel.send(embed=output.embed, view=output.view)
@@ -241,7 +355,7 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = jikan.search_clubs(query)
+		embeds = await jikan.search_clubs(query)
 		if len(embeds) != 0:
 			output = paginate(embeds=embeds, timeout=600)
 			await message.channel.send(embed=output.embed, view=output.view)
@@ -256,7 +370,7 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = jikan.search_characters(query)
+		embeds = await jikan.search_characters(query)
 		if len(embeds) != 0:
 			output = paginate(embeds=embeds, timeout=600)
 			await message.channel.send(embed=output.embed, view=output.view)
@@ -271,7 +385,7 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = jikan.search_anime(query)
+		embeds = await jikan.search_anime(query)
 		if len(embeds) != 0:
 			output = paginate(embeds=embeds, timeout=600)
 			await message.channel.send(embed=output.embed, view=output.view)
@@ -286,7 +400,7 @@ class Cogs:
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = jikan.search_manga(query)
+		embeds = await jikan.search_manga(query)
 		if len(embeds) != 0:
 			output = paginate(embeds=embeds, timeout=600)
 			await message.channel.send(embed=output.embed, view=output.view)
@@ -296,29 +410,14 @@ class Cogs:
 	@general_error_handler
 	async def search_song(self, message):
 		'''
-		Searches for a song in soundcloud database
+		Searches for a song in youtube database
 		Accepts : query
 		Returns : Paginated Embed
 		'''
 		ctx,query = await self.extract_query(message)
-		embeds = youtube_music.ydl_list_search(query)
+		embeds = await youtube_music.ydl_list_search(query)
 		output = paginate(embeds=embeds, timeout=600)
 		await message.channel.send(embed=output.embed, view=output.view)
-
-	@general_error_handler
-	async def search_radio_2(self, message):
-		'''
-		Queries radio database in https://www.internet-radio.com/,
-		Accepts : query
-		Returns : Paginated Embed
-		'''
-		ctx,query = await self.extract_query(message)
-		embeds = radio_browser.search_stations_extended(query)
-		if len(embeds) != 0:
-			output = paginate(embeds=embeds, timeout=600)
-			await message.channel.send(embed=output.embed, view=output.view)
-		else:
-			await message.channel.send("No search results :(")
 	
 	@music_error_handler
 	async def joinvc(self, message):
@@ -432,7 +531,7 @@ class Cogs:
 				embed = embed_gen.now_playing(player_env['Playing'], vc.is_paused())
 				await message.channel.send(embed=embed)
 		elif player_env['Mode'] == 'radio':
-			results = radio_browser.now_playing(path)
+			results = await radio_browser.now_playing(path)
 			if results != 'code:youscrewedup':
 				await message.channel.send(embed=results)
 			else:
@@ -468,15 +567,14 @@ class Cogs:
 		ctx,keyword = await self.extract_keyword(message)
 		vc = message.guild.voice_client
 		path = 'server-audio-sessions/'+str(vc.guild.id)
-		playlist,embed = youtube_music.playlist_extract(keyword)
+		playlist,embed = await youtube_music.playlist_extract(keyword)
 		json.dump(playlist, open(path+'/playlist.json', 'w'))
 		player_env = json.load(open(path+'/player_env.json', 'r'))
 		player_env['Mode'] = 'playlist'
 		player_env['IsRunning'] = True
 		json.dump(player_env, open(path+'/player_env.json', 'w'))
-		thread = Thread(target=rmqp.play_list, args=(vc, path, ))
-		thread.start()
 		await message.channel.send(embed=embed)
+		await rmqp.play_list(vc, path)
 		
 	@music_error_handler
 	async def stop_playlist(self, message):
@@ -503,14 +601,14 @@ class Cogs:
 			vc.stop()
 			await message.channel.send('Switched to queue mode')
 		elif player_env['Mode'] == 'queue':
-			await message.channel.send('Queue mode has no access over radio!')
+			await message.channel.send('Queue mode has no access over playlist!')
 		elif player_env['Mode'] == 'radio':
-			await message.channel.send('Radio mode has no access over radio!')
+			await message.channel.send('Radio mode has no access over playlist!')
 	
 	@music_error_handler
 	async def queue(self, message):
 		'''
-		accepts a query, searches in soundcloud and add it the guild's music playlist,
+		accepts a query, searches in youtube and add it the guild's music playlist,
 		if playing, it will be added to queue,
 		if paused, it will be added to queue and music player will be started
 		Requires : Queue Mode or Radio Mode
@@ -520,16 +618,15 @@ class Cogs:
 		ctx,query = await self.extract_query(message)
 		vc = message.guild.voice_client
 		path = 'server-audio-sessions/'+str(vc.guild.id)
-		raw,embed = youtube_music.ydl_extract(query)
+		raw,embed = await youtube_music.ydl_extract(query)
 		music_queue = json.load(open(path+'/music_queue.json', 'r'))
-		music_queue.append({'Title':raw[0],'Duration':raw[1], 'Thumbnail':raw[2], 'Url':raw[3]})
+		music_queue.append({'Title':raw[0],'Duration':raw[1], 'Thumbnail':raw[2], 'VideoId':raw[3]})
 		json.dump(music_queue, open(path+'/music_queue.json', 'w'))
 		player_env = json.load(open(path+'/player_env.json', 'r'))
 		if player_env['Mode'] == 'queue':
 			await message.channel.send(embed=embed)
 			if player_env['IsRunning'] == False:
-				thread = Thread(target=rmqp.play, args=(vc, path, ))
-				thread.start()
+				await rmqp.play(vc, path)
 
 	@music_error_handler
 	async def play_radio(self, message):
@@ -547,7 +644,7 @@ class Cogs:
 		player_env['Mode'] = 'radio'
 		player_env['IsRunning'] = True
 		json.dump(player_env, open(path+'/player_env.json', 'w'))
-		embed = rmqp.play_radio(vc, path, stream_url)
+		embed = await rmqp.play_radio(vc, path, stream_url)
 		await message.channel.send(embed=embed)
 	
 	@music_error_handler

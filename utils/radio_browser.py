@@ -1,60 +1,51 @@
-import discord,operator,json,requests,struct,re,os,random,time
-from ytmusicapi import YTMusic
+import discord,operator,json,aiohttp,re,os,random,time
 from pyradios import RadioBrowser
 from utils import embed_gen
-from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
-try:
-    import urllib2
-except ImportError:  # Python 3
-    import urllib.request as urllib2
 from fake_useragent import UserAgent
 
 defaults = json.load(open('defaults.json', 'r'))
 embed_color = int(defaults['embed_color'], 0)
 
-def icy_extract(url):
+async def stats(instances):
+	headers = {'User-Agent' : UserAgent().firefox}
+	embeds = []
+	session = aiohttp.ClientSession()
+	for instance in instances:
+		page = await session.get(url=instance+'/json/stats', headers=headers)
+		data = await page.json()
+		embed = discord.Embed(title=instance, color=embed_color)
+		embed.add_field(name='STATUS', value=data['status'], inline=False)
+		embed.add_field(name='Stations', value=data['stations'], inline=False)
+		embed.add_field(name='Clicks', value=data['clicks_last_day'], inline=False)
+		embeds.append(embed)
+	await session.close()
+	return embeds
+
+async def icy_extract(url):
 	headers = {'User-Agent' : UserAgent().firefox, 'Icy-Metadata' : "1"}
-	request = urllib2.Request(url, headers=headers)
+	session = aiohttp.ClientSession()
 	try:
-		response = urllib2.urlopen(request, timeout=1)
+		response = await session.get(url, headers=headers, timeout=2)
 		data = response.headers
 		if "icy-url" in data.keys():
 			website_link = data['icy-url']
 		else:
 			website_link = ""
 		data = {"name" : data['icy-name'], "genre" : data['icy-genre'], "url" : website_link}
+		await session.close()
 		return data
 	except:
+		await session.close()
 		return "timeout"
 
-def search_stations_extended(keyword): #Querys https://www.internet-radio.com
-	url = 'https://www.internet-radio.com/search/?radio='+keyword
+async def search_stations(keyword, instance): #Querys all.api.radio-browser.info
+	embeds = []
 	headers = {'User-Agent' : UserAgent().firefox}
-	page = requests.get(url, headers=headers)
-	soup = BeautifulSoup(page.content, 'html5lib')
-	elements = soup.findAll('tr')[:10]
-	embeds = []
-	for element in elements:
-		tds = element.findAll('td')
-		td = tds[1]
-		icy_stream_url = resolve_stream_link(td.small.a['href'])
-		td = tds[2]
-		icy_name = td.h4.text
-		tmp = td.findAll('a', attrs={'small text-success'}) # Class name used by icy_url is available
-		if len(tmp) != 0:
-			icy_url = tmp[0].text
-		else:
-			icy_url = ""
-		icy_genre = td.text[td.text.rindex('Genres'):]
-		embed = embed_gen.search_stations(icy_name, icy_genre, icy_url, icy_stream_url)
-		embeds.append(embed)
-	return embeds
-
-def search_stations(keyword): #Querys pyradios
-	embeds = []
-	rb = RadioBrowser()
-	entries = sorted(rb.search(name=keyword), key=lambda x: (-x['votes'], -x['clickcount']))[:10]
+	url = instance+'/json/stations/search?name='+keyword+'&limit=15'
+	session = aiohttp.ClientSession()
+	page = await session.get(url=url, headers=headers)
+	entries = await page.json()
+	await session.close()
 	for entry in entries:
 		icy_name = entry['name']
 		icy_genre = 'Genre: '+entry['tags']
@@ -64,44 +55,47 @@ def search_stations(keyword): #Querys pyradios
 		embeds.append(embed)
 	return embeds
 
-def now_playing(path):
+async def now_playing(path):
 	player_env = json.load(open(path+'/player_env.json', 'r'))
 	headers = {'User-Agent' : UserAgent().firefox, 'Icy-Metadata' : "1"}
 	url = player_env['Playing']['Stream']
-	request = urllib2.Request(url, headers=headers)
-	response = urllib2.urlopen(request)
+	session = aiohttp.ClientSession()
+	response = await session.get(url=url, headers=headers)
 	if response.headers['icy-name'] == player_env['Playing']['Title']: #If you have anxiety issues then check through other params also :)
 		metaint = int(response.headers['icy-metaint'])
+		track_name = ""
+		track_name = await resolve_track_name(response, metaint)
 		data = response.headers
-		track_name = resolve_track_name(response, metaint)
 		embed = discord.Embed(title='Now Playing', color=embed_color)
 		embed.add_field(name='Station name', value=data['icy-name'], inline=False)
 		embed.add_field(name='Genre', value=data['icy-genre'], inline=False)
 		embed.add_field(name='Track Name', value=track_name, inline=False)
-		link = YTMusic().search(track_name, filter="songs")[0]['thumbnails'][1]['url']
+		hostname = json.load(open('defaults.json', 'r'))['current-invidious-instance']
+		link = hostname+'/api/v1/search?q='+track_name+'&type=video'
+		page = await session.get(url=link, headers={"User-Agent" : UserAgent().firefox})
+		info = (await page.json())[0]
+		if info.get('videoThumbnails') == None:
+			link = "https://i.imgur.com/VcoRTU6.png"
+		else:
+			link = info['videoThumbnails'][1]['url']
 		embed.set_image(url=link)
+		await session.close()
 		return embed
 	else: #By no possible means should this ever happen / But if you end up here, you screwed up
+		await session.close()
 		return 'code:youscrewedup'
 
-def resolve_stream_link(link):
-	link = link.split("=")[1] # Temporary eyeballing solution, maybe permanent :)
-	link = link[:link.rfind('.')]
-	if link[link.rfind('/')+1:] == 'listen':
-		link = link[:link.rfind('/')+1] + 'play'
-	return link
-
-def resolve_track_name(response, metaint):
-	encoding = 'latin1'
+async def resolve_track_name(response, metaint):
+	track_name = ""
 	for _ in range(10):
-		response.read(metaint)  # skip to metadata
-		metadata_length = struct.unpack('B', response.read(1))[0] * 16  # length byte
-		metadata = response.read(metadata_length).rstrip(b'\0')
-		# extract title from the metadata
-		m = re.search(br"StreamTitle='([^']*)';", metadata)
+		data = await response.content.read(metaint)  # skip to metadata
+		m = re.search(br"StreamTitle='([^']*)';", data.rstrip(b'\0'))
 		if m:
 			title = m.group(1)
 			if title:
-				return title.decode(encoding, errors='replace')
+				return title.decode("utf-8", errors='replace')
+			else:
+				track_name = "No title found"
 		else:
-			return "Unknown"
+			track_name = "No title found"
+	return track_name

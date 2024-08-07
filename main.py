@@ -1,8 +1,5 @@
-import discord,json,logging,traceback,sys,uuid,os,socket,time,uvicorn,cProfile
-from discord.ext import commands
-from threading import Thread
-from functools import partial
-from fastapi import FastAPI
+import discord,json,logging,traceback,sys,uuid,os,socket,uvloop,asyncio,time,aiohttp
+from discord.ext import commands,tasks
 
 #decryptor.py having the function to decrypt the token 
 from utils import decryptor
@@ -31,6 +28,7 @@ def ping(host, port, timeout):
 		print(ex)
 		return False
 
+
 while True:
 	ra = ping(host="dns.google", port=53, timeout=3)
 	rb = ping(host="discord.com", port=53, timeout=3)
@@ -38,37 +36,63 @@ while True:
 		print("Network checks completed, Starting Bot")
 		break
 
-class MyBot(commands.Bot, cogs.Cogs):
+def process_and_archive_logs():
+	fps = ['logs/discord.log', 'logs/webserver.log', 'logs/invidious.log']
+	for fp in fps:
+		data = open(fp, "r").read()
+		if data == "": continue
+		first = data.split('\n')[0][:22]
+		last = data.split('\n')[len(data.split('\n'))-2][:22]
+		backup = 'logs/backup/'+fp[5:len(fp)-4]+' '+first+' - '+last+' .log'
+		open(backup, "w").write(data)
+
+
+class DiscordBot(commands.Bot, cogs.Cogs):
 
 	buttons = None
 	ready = False
 	map = None
 	helpbook = None
-	profiler = None
+	logger = None
 
 	def __init__(self, command_prefix, intents):
 		activity = discord.Activity(type=discord.ActivityType.listening, name=defaults["prefix_"+defaults["ego"]])
 		status = discord.Status.idle
 		commands.Bot.__init__(self, command_prefix=command_prefix, intents=intents, activity=activity, status=status)
 		cogs.Cogs.__init__(self, defaults=defaults)
-	
+		self.logger = logging.getLogger('discord')
+		self.logger.setLevel(logging.DEBUG)
+		bot_handler = logging.FileHandler(filename='logs/discord.log', encoding='utf-8', mode='w')
+		bot_handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+		self.logger.addHandler(bot_handler)
+
 	async def on_ready(self):
 		print('Discord.py: Logged in as '+str(self.user))
 		self.buttons = defaults['buttons']
 		#This map can also be defined in cogs.py
 		self.map = {"help" : self.help, "ping" : self.ping, "hostinfo" : self.hostinfo, "urltoqr" : self.urltoqr, "wifitoqr" : self.wifitoqr, "search-subreddits" : self.search_subreddits,
-		"random-sub-post" : self.random_sub_post, "search-reddit-posts" : self.search_reddit_posts, "search-people" : self.search_people, "search-magazines" : self.search_magazines, "search-clubs" : self.search_clubs,
-		"search-characters" : self.search_characters, "search-anime" : self.search_anime, "search-manga" : self.search_manga, "search-song" : self.search_song,
-		"search-playlists" : self.search_playlists, "search-pyradios" : self.search_radio_1, "search-internet-radios" : self.search_radio_2,  "joinvc" : self.joinvc, "leavevc" : self.leavevc, "pause" : self.pause,
+		"random-sub-post" : self.random_sub_post, "search-reddit-posts" : self.search_reddit_posts, "search-people" : self.search_people, "search-magazines" : self.search_magazines, "search-clubs" : self.search_clubs, "search-characters" : self.search_characters, "search-anime" : self.search_anime, "search-manga" : self.search_manga, "search-song" : self.search_song,
+		"search-playlists" : self.search_playlists, "search-radios" : self.search_radio, "joinvc" : self.joinvc, "leavevc" : self.leavevc, "pause" : self.pause, "stats.invidious" : self.report_invidious_stats, "stats.jikan" : self.report_jikan_stats, 'stats.RB' : self.report_RB_stats,
 		"resume" : self.resume, "reset-env" : self.reset_env, "current-volume" : self.current_volume, "volume" : self.volume, "now-playing" : self.now_playing, "skip-track" : self.skip_track, "queue" : self.queue,
-		"playlist" : self.playlist, "stop-playlist" : self.stop_playlist, "play-radio" : self.play_radio, "stop-radio" : self.stop_radio, "list-queue" : self.list_queue, "drop-queue" : self.drop_queue, "hackernews" : self.hackernews}
+		"playlist" : self.playlist, "stop-playlist" : self.stop_playlist, "play-radio" : self.play_radio, "stop-radio" : self.stop_radio, "list-queue" : self.list_queue, "drop-queue" : self.drop_queue,
+		"hackernews" : self.hackernews}
 		self.helpbook = self.generate_helpbook()
-		self.profiler = cProfile.Profile()
 		self.ready = True
 
+	async def setup_hook(self):
+		task = asyncio.create_task(self.resolve_invidious_instances_onboot())
+		task = asyncio.create_task(self.rDNS_lookup_RB_api())
+
+	async def async_cleanup(self):
+		print("Bot closes?")
+
+	async def close(self):
+		await self.async_cleanup()
+		await super().close()
+
 	def generate_share_data(self):
-		data = {'bot_name': self.user.name, 'num_guilds' : len(self.guilds), 'num_functions' : len(self.map), 'workdir' : os.getcwd()}
-		print(data)
+		helpbook = self.generate_helpbook()
+		data = {'bot_name': str(self.user), 'bot_ego' : defaults['ego'], 'num_guilds' : len(self.guilds), 'num_functions' : len(self.map), 'workdir' : os.getcwd(), 'ego_prefix' : defaults["prefix_"+defaults["ego"]].strip(), 'helpbook' : helpbook}
 		return data
 	
 	def generate_helpbook(self):
@@ -78,7 +102,7 @@ class MyBot(commands.Bot, cogs.Cogs):
 			helpbook[key] = str(self.map[key].__doc__)
 		return helpbook
 	
-	def write_error(self):
+	async def write_error(self):
 		exceptions = traceback.format_exception(*sys.exc_info())
 		_uuid = str(uuid.uuid4())
 		err = "UUID = "+_uuid+"\n"
@@ -122,20 +146,23 @@ class MyBot(commands.Bot, cogs.Cogs):
 					await self.map[content[0]](message)
 				except Exception as e:
 					if type(e).__name__ == 'KeyError':
-						self.write_error()
+						await self.write_error()
 						await message.channel.send('User-kun, I don\'t know what that command means (*＞ω＜*)')
 					else:
-						self.write_error()
+						await self.write_error()
 						await message.channel.send('User-kun, You should not be reading this.\nSomething very yabai has happened.\nReport to your bot admins immediately.')
 
 			activity = discord.Activity(type=discord.ActivityType.listening, name=defaults["prefix_"+defaults["ego"]])
 			status = discord.Status.idle
 			await self.change_presence(activity=activity, status=status)
 
-intents = discord.Intents.default()
-intents.message_content = True
-bot = MyBot(command_prefix=defaults["prefix_"+defaults["ego"]], intents=intents)
-bot_handler = logging.FileHandler(filename='logs/discord.log', encoding='utf-8', mode='w')
+async def main():
+	process_and_archive_logs()
+	intents = discord.Intents.default()
+	intents.message_content = True
+	bot = DiscordBot(command_prefix=defaults["prefix_"+defaults["ego"]], intents=intents)
+	await webserver.Server(discord_bot=bot, static_folder='web/static', template_folder='web/templates').start_server()
+	await bot.start(token=decryptor.imposter())
 
 '''
 Multiple ways of token encryption has been implemented
@@ -145,16 +172,10 @@ Multiple ways of token encryption has been implemented
 / You have to generate the .key and encrypted-token by yourself
 '''
 
-#Discord Bot is run as a seperate thread under the main thread running the uvicorn web server
-partial_run = partial(bot.run, decryptor.imposter(), log_handler=bot_handler, log_level=logging.DEBUG)
-Thread(target=partial_run).start()
-
-#Web server starts after getting client data that the bot is connected to
-while bot.ready == False:
-	time.sleep(1)
-
-app = FastAPI(title=__name__)
-webserver = webserver.Webserver(static_folder='web/static', template_folder='web/templates', discord_bot=bot)
-app.include_router(webserver.router)
-if __name__ == '__main__':
-	uvicorn.run(app, host='0.0.0.0', port=6900, reload=False, log_config="logs/webserver.ini")
+if __name__ == "__main__":
+	if sys.version_info >= (3, 11):
+		with asyncio.Runner(loop_factory=uvloop.new_event_loop) as runner:
+			runner.run(main())
+	else:
+		uvloop.install()
+		asyncio.run(main())

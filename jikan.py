@@ -1,4 +1,4 @@
-import requests,discord,json
+import aiohttp,discord,json
 from fake_useragent import UserAgent
 #embed_gen contains template functions to generate embeds
 from utils import embed_gen
@@ -8,11 +8,26 @@ embed_color = int(defaults['embed_color'], 0)
 ua = UserAgent()
 headers = {'User-Agent':ua.firefox}
 
-def search_people(keyword):
+async def health_jikan():
+	url = 'https://api.jikan.moe/v4'
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	data = await page.json()
+	await session.close()
+	embed = discord.Embed(title=url+' is '+data['myanimelist_heartbeat']['status'], color=embed_color)
+	embed.add_field(name='Score', value=str(data['myanimelist_heartbeat']['score']), inline=False)
+	embed.add_field(name='Version', value=data['version'], inline=False)
+	embed.add_field(name='Website', value=data['website_url'], inline=False)
+	embed.add_field(name='Author', value=data['author_url'], inline=False)
+	return embed
+
+async def search_people(keyword):
 	embeds = []
 	url = 'https://api.jikan.moe/v4/people?q='+keyword
-	page = requests.get(url, headers=headers)
-	data = json.loads(page.content)['data'][:10]
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	data = (await page.json())['data'][:10]
+	await session.close()
 	embeds = []
 	for result in data:
 		embed = discord.Embed(title=result['name']+' / '+str(result['given_name'] or "")+' / '+str(result['family_name'] or ""), color=embed_color)
@@ -29,11 +44,13 @@ def search_people(keyword):
 	return embeds
 
 
-def search_magazines(keyword):
+async def search_magazines(keyword):
 	embeds = []
 	url = "https://api.jikan.moe/v4/magazines?q="+keyword+"&order_by=count&sort=desc"
-	page = requests.get(url, headers=headers)
-	data = json.loads(page.content)['data'][:10]
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	data = (await page.json())['data'][:10]
+	await session.close()
 	embeds = []
 	for result in data:
 		embed = discord.Embed(title=result['name'], color=embed_color)
@@ -43,11 +60,13 @@ def search_magazines(keyword):
 		embeds.append(embed)
 	return embeds
 
-def search_clubs(keyword):
+async def search_clubs(keyword):
 	embeds = []
 	url = 'https://api.jikan.moe/v4/clubs?q='+keyword+'&order_by=members_count&sort=desc'
-	page = requests.get(url, headers=headers)
-	data = json.loads(page.content)['data'][:10]
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	data = (await page.json())['data'][:10]
+	await session.close()
 	embeds = []
 	for result in data:
 		embed = discord.Embed(title=result['name'], color=embed_color)
@@ -61,11 +80,13 @@ def search_clubs(keyword):
 		embeds.append(embed)
 	return embeds
 
-def search_characters(keyword):
+async def search_characters(keyword):
 	embeds = []
 	url = 'https://api.jikan.moe/v4/characters?q='+keyword+'&order_by=favorites&sort=desc'
-	page = requests.get(url, headers=headers)
-	data = json.loads(page.content)['data'][:10]
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	data = (await page.json())['data'][:10]
+	await session.close()
 	embeds = []
 	for result in data:
 		embed = discord.Embed(title=result['name']+' / '+str(result['name_kanji'] or ""), color=embed_color)
@@ -80,11 +101,13 @@ def search_characters(keyword):
 		embeds.append(embed)
 	return embeds
 
-def search_anime(keyword):
+async def search_anime(keyword):
 	embeds = []
 	url = "https://api.jikan.moe/v4/anime?q="+keyword+"&order_by=score&sort=desc"
-	page = requests.get(url, headers=headers)
-	data = json.loads(page.content)['data'][:10]
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	data = (await page.json())['data'][:10]
+	await session.close()
 	embeds = []
 	for result in data:
 		embed = discord.Embed(title=result['title'], color=embed_color)
@@ -117,11 +140,13 @@ def search_anime(keyword):
 	return embeds
 
 
-def search_manga(keyword):	
+async def search_manga(keyword):	
 	embeds = []
 	url = "https://api.jikan.moe/v4/manga?q="+keyword+"&order_by=score&sort=desc"
-	page = requests.get(url, headers=headers)
-	data = json.loads(page.content)['data'][:10]
+	session = aiohttp.ClientSession()
+	page = await session.get(url, headers=headers)
+	data = (await page.json())['data'][:10]
+	await session.close()
 	embeds = []
 	for result in data:
 		embed = discord.Embed(title=result['title'], color=embed_color)

@@ -6,8 +6,8 @@ After=network.target
 Type=exec
 User=Hanekawa-san
 WorkingDirectory=/home/Hanekawa-san/
-ExecStart=/usr/bin/python3 -Ou main.py
-Restart=unless-stopped
+ExecStart=/usr/bin/python3 main.py
+Restart=always
 
 [Install]
 WantedBy=multi-user.target

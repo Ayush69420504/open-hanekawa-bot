@@ -1,6 +1,7 @@
 aiohttp[speedups]
 uvloop
 aiosignal
+aiodns
 annotated-types
 anyio
 attrs
@@ -38,7 +39,5 @@ urllib3
 uvicorn
 websockets
 yarl
-yt-dlp
-ytmusicapi
 decorator
 dpy-paginator

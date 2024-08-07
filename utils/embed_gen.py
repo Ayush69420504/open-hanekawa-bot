@@ -1,6 +1,6 @@
 import discord,json,time
 from datetime import timedelta
-from utils import oxo
+from utils import OxO
 
 defaults = json.load(open('defaults.json', 'r'))
 embed_color = int(defaults['embed_color'], 0)
@@ -36,12 +36,12 @@ def play_radio(icy_name, icy_genre, icy_url):
 		embed.add_field(name='Website', value=icy_url, inline=False)
 	return embed
 	
-def help(helpbook):
+async def help(helpbook):
 	embeds = []
 	data = open('data/whoami', 'r').read()
 	embed = discord.Embed(title="I am Hanekawa-san", description=data, color=embed_color)
-	link = oxo.upload_file_path(path='data/smile.gif', expires=round(time.time())+900, secret=None)
-	embed.set_image(url=link)
+	url = await OxO.upload(fp='data/smile.gif', expires=600)
+	embed.set_image(url=url)
 	embeds.append(embed)
 	key_list = list(helpbook.keys())
 	intervals = len(key_list)//5
