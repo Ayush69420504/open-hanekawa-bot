@@ -1,37 +1,32 @@
 import discord,json,asyncio
-import aiohttp
-from fake_useragent import UserAgent
 from utils import embed_gen
 from utils import radio_browser
+from yt_dlp import YoutubeDL
 
 FFMPEG_OPTIONS = {'before_options':'-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options' : '-vn'}
 defaults = json.load(open('defaults.json', 'r'))
 embed_color = int(defaults['embed_color'], 0)
-ua = UserAgent()
-headers = {'User-Agent':ua.firefox}
+ydl_opts = {
+    'quiet': True,  # Suppress console output
+    'no_warnings': True,  # Hide warnings
+    'extract_flat': True,
+	'format': 'm4a/bestaudio/best'  # Set to True for playlists (faster, less info)
+}
 '''
-This file will look weird as play_list and play are being run in a seperate thread.
-
-I know that vc.play has an after= parameter which can be used to make a playlist system
-
-But in favour of simplicity and that this was my original design, i will not change it.
-
-anon code suggestions to update rmqp.py will be reviewed.
+rmqp = Recursive Music Queue Player
+Its called recursive because originally it was a recursive callback design
+now its a forever loop with asyncio.sleep()
 '''
 
 async def play_list(vc, path):
 	#I have named this function play_list with a underscore like a complete madman to differenciate from the playlist python object :)
 	vc.stop()
-	hostname = json.load(open('defaults.json', 'r'))['current-invidious-instance']
 	playlist = json.load(open(path+'/playlist.json', 'r'))
 	player_env = json.load(open(path+'/player_env.json', 'r'))
 	if len(playlist) != 0:
-		link = hostname+'/api/v1/videos/'+playlist[0]['VideoId']
-		session = aiohttp.ClientSession()
-		page = await session.get(url=link, headers=headers)
-		stream_url = (await page.json())['adaptiveFormats'][1]['url']
-		await session.close()
-		stream_url = hostname+'/videoplayback'+stream_url.split("videoplayback")[1]
+		with YoutubeDL(ydl_opts) as ydl:
+			info = ydl.extract_info("https://www.youtube.com/watch?v="+playlist[0]['VideoId'], download=False)
+		stream_url = info['url']
 		source = discord.FFmpegPCMAudio(stream_url, executable='bin/ffmpeg', **FFMPEG_OPTIONS)
 		source = discord.PCMVolumeTransformer(source)
 		source.volume = player_env['Volume'][1]/100
@@ -80,16 +75,12 @@ async def play_radio(vc, path, stream_url):
 		return embed
 
 async def play(vc, path):
-	hostname = json.load(open('defaults.json', 'r'))['current-invidious-instance']
 	music_queue = json.load(open(path+'/music_queue.json', 'r'))
 	player_env = json.load(open(path+'/player_env.json', 'r'))
 	if len(music_queue) != 0:
-		link = hostname+'/api/v1/videos/'+music_queue[0]['VideoId']
-		session = aiohttp.ClientSession()
-		page = await session.get(url=link, headers=headers)
-		stream_url = (await page.json())['adaptiveFormats'][1]['url']
-		await session.close()
-		stream_url = hostname+'/videoplayback'+stream_url.split("videoplayback")[1]
+		with YoutubeDL(ydl_opts) as ydl:
+			info = ydl.extract_info("https://www.youtube.com/watch?v="+music_queue[0]['VideoId'], download=False)
+		stream_url = info['url']
 		source = discord.FFmpegPCMAudio(stream_url, executable='bin/ffmpeg', **FFMPEG_OPTIONS)
 		source = discord.PCMVolumeTransformer(source)
 		source.volume = player_env['Volume'][1]/100

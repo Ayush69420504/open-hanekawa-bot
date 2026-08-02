@@ -1,4 +1,4 @@
-import discord,json,logging,traceback,sys,uuid,os,socket,uvloop,asyncio,time,aiohttp
+import discord,json,logging,traceback,sys,uuid,os,socket,uvloop,asyncio,time
 from discord.ext import commands,tasks
 
 #decryptor.py having the function to decrypt the token 
@@ -29,12 +29,12 @@ def ping(host, port, timeout):
 		return False
 
 
-while True:
-	ra = ping(host="dns.google", port=53, timeout=3)
-	rb = ping(host="discord.com", port=53, timeout=3)
-	if ra and rb == True:
-		print("Network checks completed, Starting Bot")
-		break
+#while True:
+#	ra = ping(host="dns.google", port=53, timeout=3)
+#	rb = ping(host="discord.com", port=53, timeout=3)
+#	if ra and rb == True:
+#		print("Network checks completed, Starting Bot")
+#		break
 
 def process_and_archive_logs():
 	fps = ['logs/discord.log', 'logs/webserver.log', 'logs/invidious.log']
@@ -70,9 +70,9 @@ class DiscordBot(commands.Bot, cogs.Cogs):
 		print('Discord.py: Logged in as '+str(self.user))
 		self.buttons = defaults['buttons']
 		#This map can also be defined in cogs.py
-		self.map = {"help" : self.help, "ping" : self.ping, "hostinfo" : self.hostinfo, "urltoqr" : self.urltoqr, "wifitoqr" : self.wifitoqr, "search-subreddits" : self.search_subreddits,
-		"random-sub-post" : self.random_sub_post, "search-reddit-posts" : self.search_reddit_posts, "search-people" : self.search_people, "search-magazines" : self.search_magazines, "search-clubs" : self.search_clubs, "search-characters" : self.search_characters, "search-anime" : self.search_anime, "search-manga" : self.search_manga, "search-song" : self.search_song,
-		"search-playlists" : self.search_playlists, "search-radios" : self.search_radio, "joinvc" : self.joinvc, "leavevc" : self.leavevc, "pause" : self.pause, "stats.invidious" : self.report_invidious_stats, "stats.jikan" : self.report_jikan_stats, 'stats.RB' : self.report_RB_stats,
+		self.map = {"help" : self.help, "ping" : self.ping, "hostinfo" : self.hostinfo, "search-songs-yt" : self.search_song, "search-anime" : self.search_anime, "search-manga" : self.search_manga, "search-character" : self.search_character,
+		"list-slsk-credentials" : self.list_slsk_creds, "remove-slsk-credentials" : self.wipe_slsk_creds, "add-slsk-credentials" : self.slsk_creds, "search-songs-slsk" : self.search_slsk, "download-song-slsk" : self.download_file_slsk,
+		"search-playlists" : self.search_playlists, "search-radios" : self.search_radio, "joinvc" : self.joinvc, "leavevc" : self.leavevc, "pause" : self.pause, 'stats.RB' : self.report_RB_stats,
 		"resume" : self.resume, "reset-env" : self.reset_env, "current-volume" : self.current_volume, "volume" : self.volume, "now-playing" : self.now_playing, "skip-track" : self.skip_track, "queue" : self.queue,
 		"playlist" : self.playlist, "stop-playlist" : self.stop_playlist, "play-radio" : self.play_radio, "stop-radio" : self.stop_radio, "list-queue" : self.list_queue, "drop-queue" : self.drop_queue,
 		"hackernews" : self.hackernews}
@@ -80,7 +80,7 @@ class DiscordBot(commands.Bot, cogs.Cogs):
 		self.ready = True
 
 	async def setup_hook(self):
-		task = asyncio.create_task(self.resolve_invidious_instances_onboot())
+		#task = asyncio.create_task(self.resolve_invidious_instances_onboot())
 		task = asyncio.create_task(self.rDNS_lookup_RB_api())
 
 	async def async_cleanup(self):

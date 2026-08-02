@@ -5,6 +5,7 @@ def gen(guild_id):
 	if not files_exist:
 		default_queue = []
 		default_playlist = []
+		default_soulseek = []
 		playing = {'Title':None, 'Duration':None, 'Thumbnail':None, 'Genre':None, 'Stream':None}
 		default_player_env = {'Playing':playing, 'IsRunning':False, 'Mode':'queue', 'Volume':[None, 100]}
 		os.makedirs('server-audio-sessions/'+str(guild_id))
@@ -14,3 +15,5 @@ def gen(guild_id):
 			json.dump(default_player_env, player_env)
 		with open('server-audio-sessions/'+str(guild_id)+'/playlist.json', 'w') as playlist:
 			json.dump(default_playlist, playlist)
+		with open('server-audio-sessions/'+str(guild_id)+'/soulseek.json', 'w') as soulseek:
+			json.dump(default_soulseek, soulseek)

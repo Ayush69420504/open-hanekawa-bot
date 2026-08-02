@@ -3,190 +3,179 @@ Hanekawa-san is a multipurpose discord bot, it has multimedia functions and no a
 I must clarify that in no way i intend to turn this into a moderation bot. But if the bot requires admin privliges,
 a developer can add such functions, Refer to How_to_develop.md
 
-Functions as of version 1.2.3
+Functions as of version 1.5.0
 
-Total: 35 functions
+Total: 32 functions
 
-1. help
+help
 Help function, lists a whoami and pages of commands help
 Accepts : None
 Returns : Paginated Embed
 
-2. ping
+ping
 Ping -> Pong, measures latency of bot connection to server,
 Accepts : None
 Returns : Text
 
-3. hostinfo
+hostinfo
 Returns a htop / Task Manager view of system usage
 Accepts : None
 Returns : Embed
 
-4. urltoqr
-Converts a url/link to a qr code using googleapis,
-Accepts : keyword
-Returns : url/type-img
-
-5. wifitoqr
-Converts a list of data to a wifi qr code
-Accepts : ssid (string), encryption (string), password (string)
-Returns : url/type-img
-
-6. search-subreddits
-Uses the reddit json api to query search results for 10 subreddits
+search-songs-yt
+Searches for a song in youtube database
 Accepts : query
 Returns : Paginated Embed
 
-7. random-sub-post
-Uses a subreddit name to display a random subreddit post that is available is guest user through reddit json api
-Note: Provide the subreddit name with no prefix
-Aceepts : Keyword (subreddit_name_noprefix)
-Returns : Sucess Embed or Error Embed
-
-8. search-reddit-posts
-Searches 10 relevant posts to the query using reddit json api
+search-anime
+Searches for a anime in AniList Database
 Accepts : query
-Returns : Paginated Embed
+Returns : Embed
 
-9. search-people
-Searches for people in the MAL database using jikan api
-Accepts : Query
-Returns : Paginated Embed
-
-10. search-magazines
-Searches for MAL magazines using jikan api
+search-manga
+Searches for a manga in AniList Database
 Accepts : query
-Returns : Paginated Embed
+Returns : Embed
 
-11. search-clubs
-Searches for MAL clubs using jikan api
+search-character
+Searches for a character in AniList Database
 Accepts : query
-Returns : Paginated Embed
+Returns : Embed
 
-12. search-characters
-Searches for anime and manga characters using jikan api
-Accepts : query
-Returns : Paginated Embed
+list-slsk-credentials
+List the usernames of all the soulseek credentials of a guild
+Accepts : None
+Returns : Embed
 
-13. search-anime
-Searches for anime using jikan api
-Accepts : query
-Returns : Paginated Embed
+remove-slsk-credentials
+Removes a specified soulseek credential for a guild, Only allows removal if both parameters match.
+Accepts : Query (Username + Password with a space in b/w)
+Returns : Confirmation embed
 
-14. search-manga
-Searches for manga using jikan api
-Accepts : query
-Returns : Paginated Embed
+add-slsk-credentials
+Adds soulseek credentials for a guild, Adds a new entry if more than one, does not allow addition of duplicates
+Accepts : Query (Username + Password with a space in b/w)
+Returns : Confirmation embed
 
-15. search-song
-Searches for a song in soundcloud database
-Accepts : query
-Returns : Paginated Embed
+search-songs-slsk
+Searches the soulseek network for songs
+Accepts : Query (Username + Query)
+Returns : Paginated Embeds or Failure Embed
 
-16. search-playlists
+download-song-slsk
+Downloads a song/file from the soulseek network
+Accepts : Query (Username + Peer Username + Filepath)
+Retuns : Animated (By means of editing) embed which eventually returns a upload url of tmpfiles.org
+
+search-playlists
 Searches 10 playlists from Youtube
 Accepts : query
 Returns : Paginated Embed
 
-17. search-radios
-Queries radio database in https://all.api.radio-browser.info,
+search-radios
+Queries radio database in all.api.radio-browser.info,
 Accepts : query
 Returns : Paginated Embed
 
-18. joinvc
+joinvc
 Joins the voice chat of user, errors out if no voice channel,
 Accepts : None
 Returns : Text
 
-19. leavevc
+leavevc
 Leaves the currently joined voice chat, errors out when no voice channel
 Accepts : None
 Returns : Text
 
-20. pause
+pause
 Pauses the music player of guild,
 Accepts : None
 Returns : Text
 
-21. resume
+stats.RB
+Reports the stats of all Radio Browser instances
+Accepts : None
+Returns : Embed
+
+resume
 Resumes the music player in guild,
 Accepts : None
 Returns : Text
 
-22. reset-env
+reset-env
 Resets the player_env.json music_queue.json playlist.json of a guild
 Accepts : None
 Returns : Text (String)
 
-23. current-volume
+current-volume
 Returns the saved volume setting for a particular guild,
 Accepts : None
 Returns : Text (String) : Text (int)
 
-24. volume
+volume
 Sets the volume of a particular guild, this is saved,
 Accepts : keyword (int)
 Returns : Conformation message (Text/String)
 
-25. now-playing
+now-playing
 Shows the currently playing track in queue or the radio stream,
 Requires : Queue Mode or Radio Mode
 Accepts : None
 Returns : Embed
 
-26. skip-track
+skip-track
 Skips playing track in queue, removes it from list and moves on to next,
 Requires : Queue Mode
 Accepts : None
 Returns : Conformation Embed
 
-27. queue
-accepts a query, searches in soundcloud and add it the guild's music playlist,
+queue
+accepts a query, searches in youtube and add it the guild's music playlist,
 if playing, it will be added to queue,
 if paused, it will be added to queue and music player will be started
 Requires : Queue Mode or Radio Mode
 Accepts : query
 Returns : Embed
 
-28. playlist
+playlist
 Accepts a playlist-id that is supplied from search-playlists and uses it to create a music queue
 If other modes on, then it will stop them and start "playlist" mode
 Requires : Any Mode
 Accepts : keyword (playlist-id)
 Returns : Embed
 
-29. stop-playlist
+stop-playlist
 Stops the currently playing playlist, this method should be reffered instead of a drop_queue
 like system of stopping in case of playlists
 Requires : Queue Mode
 Accepts : None
 Returns : Text
 
-30. play-radio
+play-radio
 Plays a radio station on basis of it's stream url, that can be obtained from search_radios,
 Requires : Queue Mode or Radio Mode
 Accepts : keyword
 Returns : Embed
 
-31. stop-radio
+stop-radio
 Stops the radio player and switches to queue mode,
 Requires : Queue Mode
 Accepts : None
 Returns : Text
 
-32. list-queue
+list-queue
 Lists queue in queue mode
 Requires :: Queue Mode
 Accepts : None
 Returns : Embed
 
-33. drop-queue
+drop-queue
 Drops the music queue and stops music player in queue mode,
 Requires : Queue Mode
 Accepts : None
 Returns : Text
 
-34. hackernews
+hackernews
 Searches hackernews by topstories/beststories/newstories,
 Accepts : keyword
 Returns : Paginated Embed

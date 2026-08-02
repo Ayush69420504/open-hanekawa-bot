@@ -1,13 +1,8 @@
-import discord,json,shutil,decorator,aiohttp,asyncio,logging,socket,random
+import discord,json,shutil,decorator,asyncio,logging,socket,random
 from dpy_paginator import paginate
-from fake_useragent import UserAgent
-ua = UserAgent()
-headers = {'User-Agent':ua.firefox}
 
 #hackernews.py uses the https://hacker-news.firebaseio.com/v0/ api to get news!
 import hackernews
-#reddit.py is contains functions to scrape certain reddit websites
-import reddit
 #hostinfo.py having the function to return formatted data regarding system info
 from utils import hostinfo
 #youtube_music.py having youtube music playback capability
@@ -16,19 +11,19 @@ from utils import youtube_music
 from utils import radio_browser
 #rmpq.py acroynm for recursive music queue player, it sucks, i know :(
 import rmqp
-#jikan.py is a multi-purpose MAL scrapper using the jikan api
-import jikan
 #embed_gen.py contains functions generating template embeds. Used to reduce code in main.py
 from utils import embed_gen
 #defaults_generator.py generates a default config folder for every voice channel, containing the music_queue.json and player_env.json
 from utils import defaults_generator
+#AniList Python
+import anilist
+#Soulseek Python
+import soulseek
 
 class Cogs:
 
 	buttons = None
-	invidious_instances = []
 	RB_instances = []
-	current_invidious_instance = None
 
 	@decorator.decorator
 	async def general_error_handler(coro, self, message):
@@ -54,74 +49,6 @@ class Cogs:
 			actions = "For errors originating from human nature, please try fixing them yourself.\nFor more technical errors since these are recorded, report with uuid to the bot's admin or you may contact the dev.\nNote: It is not guranteed that the dev or admin will always have access to the logs :)"
 			embed = embed_gen.generate_error(str(e), actions, _uuid)
 			await message.channel.send(embed=embed)
-
-	async def resolve_invidious_instances_onboot(self):
-		while True:
-			invidious_logger = logging.getLogger('invidious')
-			invidious_logger.setLevel(logging.DEBUG)
-			invidious_handler = logging.FileHandler(filename="logs/invidious.log", encoding="utf-8", mode="w")
-			invidious_handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
-			invidious_logger.addHandler(invidious_handler)
-			link = 'https://api.invidious.io/instances.json'
-			session = aiohttp.ClientSession()
-			page = await session.get(url=link, headers=headers)
-			entries = await page.json()
-			invidious_logger.debug('Testing available invidious instances for valid endpoints')
-			for entry in entries:
-				if entry[1]['cors'] == True and entry[1]['api'] == True:
-					t1,t2,t3 = 0,0,0
-					invidious_logger.debug(entry[0]+" has cors and api available")
-					link = 'https://'+entry[0]
-					t1 = asyncio.get_event_loop().time()
-					try:
-						res = await session.get(url=link+'/api/v1/stats', headers=headers, timeout=3)
-					except:
-						invidious_logger.error('Timed out after 2 seconds, unacceptable for api, skipping')
-						continue
-					if res.status == 200:
-						t1 = asyncio.get_event_loop().time() - t1
-						invidious_logger.debug('/api/v1/stats endpoint works, elapsed: '+str(t1))
-					else:
-						invidious_logger.error('Failed, skipping')
-						continue
-					t2 = asyncio.get_event_loop().time()
-					try:
-						res = await session.get(url=link+'/api/v1/videos/y2XArpEcygc', headers=headers, timeout=3)
-					except:
-						invidious_logger.error('Timed out after 2 seconds, unacceptable for api, skipping')
-						continue
-					if res.status == 200:
-						t2 = asyncio.get_event_loop().time() - t2
-						invidious_logger.debug('/api/v1/videos/:id endpoint works, elapsed: '+str(t2))
-					else:
-						invidious_logger.error('Failed, skipping')
-						continue
-					stream_url = (await res.json())['adaptiveFormats'][1]['url']
-					stream_url = link+'/videoplayback'+stream_url.split('videoplayback')[1]
-					t3 = asyncio.get_event_loop().time()
-					res = await session.get(url=stream_url, headers=headers)
-					if res.status == 200:
-						t3 = asyncio.get_event_loop().time() - t3
-						invidious_logger.debug('/videoplayback streaming endpoint works, elapsed: '+str(t3))
-					else:
-						invidious_logger.error('Failed, skipping')
-						continue
-					avg_latency = (t1+t2+t3)/3
-					invidious_logger.debug('Avg latency: '+str(avg_latency))
-					self.invidious_instances.append({"hostname" : link, "avg_latency" : avg_latency})
-					invidious_logger.debug(entry[0]+" fully checked and added")
-				else:
-					invidious_logger.error(entry[0]+' has no cors and api available')
-			await session.close()
-			self.invidious_instances.sort(key=lambda x : x['avg_latency'], reverse=False)
-			self.current_invidious_instance = self.invidious_instances[0]
-			defaults = json.load(open("defaults.json", "r"))
-			defaults['current-invidious-instance'] = self.current_invidious_instance['hostname']
-			json.dump(defaults, open('defaults.json', 'w'))
-			invidious_logger.debug('Working instances resolved and added')
-			invidious_logger.debug('Currently set instance : '+self.current_invidious_instance['hostname'])
-			invidious_logger.debug('Avg latency : '+str(self.current_invidious_instance['avg_latency']))
-			await asyncio.sleep(3600)
 	
 	async def rDNS_lookup_RB_api(self):
 		"""
@@ -161,26 +88,6 @@ class Cogs:
 		embeds = await radio_browser.stats(self.RB_instances)
 		output = paginate(embeds=embeds, timeout=600)
 		await message.channel.send(embed=output.embed, view=output.view)
-		
-	@general_error_handler
-	async def report_jikan_stats(self, message):
-		'''
-		Reports the stats of the jikan rest api
-		Accepts : None
-		Returns : Embed
-		'''
-		embed = await jikan.health_jikan()
-		await message.channel.send(embed=embed)
-
-	@general_error_handler
-	async def report_invidious_stats(self, message):
-		'''
-		Reports the current invidious instance being used and its stats
-		Accepts : None
-		Returns : Embed
-		'''
-		embed = await youtube_music.current_invidious_instance()
-		await message.channel.send(embed=embed)
 
 	@general_error_handler
 	async def search_playlists(self, message):
@@ -191,42 +98,6 @@ class Cogs:
 		'''
 		ctx,query = await self.extract_query(message)
 		embeds = await youtube_music.playlist_search(query)
-		output = paginate(embeds=embeds, timeout=600)
-		await message.channel.send(embed=output.embed, view=output.view)
-
-	@general_error_handler
-	async def search_reddit_posts(self, message):
-		'''
-		Searches 10 relevant posts to the query using reddit json api
-		Accepts : query
-		Returns : Paginated Embed
-		'''
-		ctx,query = await self.extract_query(message)
-		embeds = await reddit.search_reddit_posts(query)
-		output = paginate(embeds=embeds, timeout=600)
-		await message.channel.send(embed=output.embed, view=output.view)
-
-	@general_error_handler
-	async def random_sub_post(self, message):
-		'''
-		Uses a subreddit name to display a random subreddit post that is available is guest user through reddit json api
-		Note: Provide the subreddit name with no prefix
-		Aceepts : Keyword (subreddit_name_noprefix)
-		Returns : Sucess Embed or Error Embed
-		'''
-		ctx,keyword = await self.extract_keyword(message)
-		embed = await reddit.random_sub_post(keyword)
-		await message.channel.send(embed=embed)
-	
-	@general_error_handler
-	async def search_subreddits(self, message):
-		'''
-		Uses the reddit json api to query search results for 10 subreddits
-		Accepts : query
-		Returns : Paginated Embed
-		'''
-		ctx,query = await self.extract_query(message)
-		embeds = await reddit.search_subreddits(query)
 		output = paginate(embeds=embeds, timeout=600)
 		await message.channel.send(embed=output.embed, view=output.view)
 		
@@ -290,122 +161,6 @@ class Cogs:
 		Returns : Embed
 		'''
 		await message.channel.send(embed=hostinfo.getSystemInfo())
-	
-	@general_error_handler
-	async def urltoqr(self, message):
-		'''
-		Converts a url/link to a qr code using googleapis,
-		Accepts : keyword
-		Returns : url/type-img
-		'''
-		ctx,url = await self.extract_keyword(message)
-		url = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='+url+'&choe=UTF-8'
-		await message.channel.send(url)
-	
-	@general_error_handler
-	async def wifitoqr(self, message):
-		'''
-		Converts a list of data to a wifi qr code
-		Accepts : ssid (string), encryption (string), password (string)
-		Returns : url/type-img
-		'''
-		content = message.content.split(" ")[2:]
-		ssid = content[0]
-		encryption = content[1]
-		password = content[2]
-		chl = 'WIFI:S:'+ssid+';T:'+encryption+';P:'+password+';H:false;;'
-		url = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='+chl+'&choe=UTF-8'
-		await message.channel.send(url)
-
-	@general_error_handler
-	async def search_people(self, message):
-		'''
-		Searches for people in the MAL database using jikan api
-		Accepts : Query
-		Returns : Paginated Embed
-		'''
-		ctx,query = await self.extract_query(message)
-		embeds = await jikan.search_people(query)
-		if len(embeds) != 0:
-			output = paginate(embeds=embeds, timeout=600)
-			await message.channel.send(embed=output.embed, view=output.view)
-		else:
-			await message.channel.send("No results :(")
-
-	@general_error_handler
-	async def search_magazines(self, message):
-		'''
-		Searches for MAL magazines using jikan api
-		Accepts : query
-		Returns : Paginated Embed
-		'''
-		ctx,query = await self.extract_query(message)
-		embeds = await jikan.search_magazines(query)
-		if len(embeds) != 0:
-			output = paginate(embeds=embeds, timeout=600)
-			await message.channel.send(embed=output.embed, view=output.view)
-		else:
-			await message.channel.send("No results :(")
-	
-	@general_error_handler
-	async def search_clubs(self, message):
-		'''
-		Searches for MAL clubs using jikan api
-		Accepts : query
-		Returns : Paginated Embed
-		'''
-		ctx,query = await self.extract_query(message)
-		embeds = await jikan.search_clubs(query)
-		if len(embeds) != 0:
-			output = paginate(embeds=embeds, timeout=600)
-			await message.channel.send(embed=output.embed, view=output.view)
-		else:
-			await message.channel.send("No results :(")
-
-	@general_error_handler
-	async def search_characters(self, message):
-		'''
-		Searches for anime and manga characters using jikan api
-		Accepts : query
-		Returns : Paginated Embed
-		'''
-		ctx,query = await self.extract_query(message)
-		embeds = await jikan.search_characters(query)
-		if len(embeds) != 0:
-			output = paginate(embeds=embeds, timeout=600)
-			await message.channel.send(embed=output.embed, view=output.view)
-		else:
-			await message.channel.send("No results :(")
-
-	@general_error_handler
-	async def search_anime(self, message):
-		'''
-		Searches for anime using jikan api
-		Accepts : query
-		Returns : Paginated Embed
-		'''
-		ctx,query = await self.extract_query(message)
-		embeds = await jikan.search_anime(query)
-		if len(embeds) != 0:
-			output = paginate(embeds=embeds, timeout=600)
-			await message.channel.send(embed=output.embed, view=output.view)
-		else:
-			await message.channel.send("No results :(")
-
-	@general_error_handler
-	async def search_manga(self, message):
-		'''
-		Searches for manga using jikan api
-		Accepts : query
-		Returns : Paginated Embed
-		'''
-		ctx,query = await self.extract_query(message)
-		embeds = await jikan.search_manga(query)
-		if len(embeds) != 0:
-			output = paginate(embeds=embeds, timeout=600)
-			await message.channel.send(embed=output.embed, view=output.view)
-		else:
-			await message.channel.send("No results :(")
 		
 	@general_error_handler
 	async def search_song(self, message):
@@ -419,6 +174,121 @@ class Cogs:
 		output = paginate(embeds=embeds, timeout=600)
 		await message.channel.send(embed=output.embed, view=output.view)
 	
+	@general_error_handler
+	async def search_anime(self, message):
+		'''
+		Searches for a anime in AniList Database
+		Accepts : query
+		Returns : Embed
+		'''
+		ctx,query = await self.extract_query(message)
+		embed = await anilist.search_anime(query)
+		await message.channel.send(embed=embed)
+
+	@general_error_handler
+	async def search_manga(self, message):
+		'''
+		Searches for a manga in AniList Database
+		Accepts : query
+		Returns : Embed
+		'''
+		ctx,query = await self.extract_query(message)
+		embed = await anilist.search_manga(query)
+		await message.channel.send(embed=embed)
+	
+	@general_error_handler
+	async def search_character(self, message):
+		'''
+		Searches for a character in AniList Database
+		Accepts : query
+		Returns : Embed
+		'''
+		ctx,query = await self.extract_query(message)
+		embed = await anilist.search_character(query)
+		await message.channel.send(embed=embed)
+
+	@general_error_handler
+	async def list_slsk_creds(self, message):
+		'''
+		List the usernames of all the soulseek credentials of a guild
+		Accepts : None
+		Returns : Embed
+		'''
+		path = 'server-audio-sessions/'+str(message.guild.id)
+		embed = await soulseek.list_credentials_username(path)
+		await message.channel.send(embed=embed)
+
+	@general_error_handler
+	async def wipe_slsk_creds(self, message):
+		'''
+		Removes a specified soulseek credential for a guild, Only allows removal if both parameters match.
+		Accepts : Query (Username + Password with a space in b/w)
+		Returns : Confirmation embed
+		'''
+		content = message.content.split(" ")
+		username = content[2]
+		password = content[3]
+		path = 'server-audio-sessions/'+str(message.guild.id)
+		result = await soulseek.remove_credentials(username=username, password=password, path=path)
+		await message.channel.send(embed=result['embed'])
+		
+	@general_error_handler
+	async def slsk_creds(self, message):
+		'''
+		Adds soulseek credentials for a guild, Adds a new entry if more than one, does not allow addition of duplicates
+		Accepts : Query (Username + Password with a space in b/w)
+		Returns : Confirmation embed
+		'''
+		content = message.content.split(" ")
+		username = content[2]
+		password = content[3]
+		path = 'server-audio-sessions/'+str(message.guild.id)
+		result = await soulseek.create_credentials(username=username, password=password, path=path)
+		await message.channel.send(embed=result)
+	
+	@general_error_handler
+	async def search_slsk(self, message):
+		'''
+		Searches the soulseek network for songs
+		Accepts : Query (Username + Query)
+		Returns : Paginated Embeds or Failure Embed
+		'''
+		content = message.content.split(" ")
+		username = content[2]
+		path = 'server-audio-sessions/'+str(message.guild.id)
+		query = ""
+		for word in content[3:]:
+			query += word + ' '
+		reply = await message.channel.send("Wait 10 seconds for soulseek to return search results")
+		status,embeds = await soulseek.search_songs(keyphrase=query, username=username, path=path)
+		if status == "success":
+			output = paginate(embeds=embeds, timeout=600)
+			await reply.edit(content='', embed=output.embed, view=output.view)
+		elif status == "failure":
+			embed = discord.Embed(title="Failure", color=0xFF0000)
+			embed.add_field(name="User does not exist in the soulseek credentials file, please add them or retype correctly", value='', inline=False)
+			await reply.edit(content='', embed=embed)
+	
+	@general_error_handler
+	async def download_file_slsk(self, message):
+		'''
+		Downloads a song/file from the soulseek network
+		Accepts : Query (Username + Peer Username + Filepath)
+		Retuns : Animated (By means of editing) embed which eventually returns a upload url of tmpfiles.org
+		'''
+		content = message.content.split(" ")
+		path = 'server-audio-sessions/'+str(message.guild.id)
+		username = content[2]
+		slsk_username = content[3]
+		query = ""
+		for word in content[4:]:
+			query += word + ' '
+		response = await soulseek.download_song(username=username, slsk_username=slsk_username, filename=query.strip(), path=path, message=message)
+		if response['status'] == "failure":
+			embed = discord.Embed(title="Failure", color=0xFF0000)
+			embed.add_field(name=response['desc'], value='', inline=False)
+			await message.channel.send(embed=embed)
+
 	@music_error_handler
 	async def joinvc(self, message):
 		'''
@@ -535,7 +405,7 @@ class Cogs:
 			if results != 'code:youscrewedup':
 				await message.channel.send(embed=results)
 			else:
-				await message.channel.send('Ring O security breach !!!.\nEither data has been tampered by malicious author :(\nOr it is the admin messing around :)')
+				await message.channel.send('Massive Security Breach !!!.\nEither data has been tampered by malicious author :(\nOr it is the admin messing around :)')
 	
 	@music_error_handler
 	async def skip_track(self, message):

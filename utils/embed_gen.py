@@ -1,6 +1,5 @@
 import discord,json,time
 from datetime import timedelta
-from utils import OxO
 
 defaults = json.load(open('defaults.json', 'r'))
 embed_color = int(defaults['embed_color'], 0)
@@ -10,6 +9,7 @@ def generate_error(error, actions, _uuid):
 	embed.add_field(name="Error UUID", value=_uuid, inline=False)
 	embed.add_field(name="Error message", value=error, inline=False)
 	embed.add_field(name="Possible actions", value=actions, inline=False)
+	embed.set_image(url=defaults['error_image'])
 	return embed
 
 def search_stations(icy_name, icy_genre, icy_url, icy_stream_url):
@@ -40,8 +40,7 @@ async def help(helpbook):
 	embeds = []
 	data = open('data/whoami', 'r').read()
 	embed = discord.Embed(title="I am Hanekawa-san", description=data, color=embed_color)
-	url = await OxO.upload(fp='data/smile.gif', expires=600)
-	embed.set_image(url=url)
+	embed.set_image(url=defaults['banner_image'])
 	embeds.append(embed)
 	key_list = list(helpbook.keys())
 	intervals = len(key_list)//5
@@ -61,14 +60,14 @@ def list_queue(music_queue):
 	embed = discord.Embed(title="Next in Queue", color=embed_color)
 	i = 1
 	for x in music_queue:
-		embed.add_field(name=str(i)+". "+x['Title']+" : "+str(timedelta(seconds=round(x['Duration']))), value='\n', inline=False)
+		embed.add_field(name=str(i)+". "+x['Title']+" : "+x['Duration'], value='\n', inline=False)
 		i += 1
 	return embed
 		
 def now_playing(playing, ispaused): # General purpose nowplaying for the music player NOT the radio station
 	embed = discord.Embed(title='Now Playing', color=embed_color)
 	embed.add_field(name='Title', value=playing['Title'], inline=False)
-	t_time = str(timedelta(seconds=round(playing['Duration'])))
+	t_time = playing['Duration']
 	if ispaused is True:
 		embed.add_field(name='Paused', value=t_time, inline=False)
 	else:
@@ -79,6 +78,6 @@ def now_playing(playing, ispaused): # General purpose nowplaying for the music p
 def skip_track(playing):
 	embed = discord.Embed(title='Skipping track', color=embed_color)
 	embed.add_field(name='Title', value=playing['Title'], inline=False)
-	embed.add_field(name='Duration', value=str(timedelta(seconds=round(playing['Duration']))), inline=False)
+	embed.add_field(name='Duration', value=playing['Duration'], inline=False)
 	embed.set_image(url=playing['Thumbnail'])
 	return embed

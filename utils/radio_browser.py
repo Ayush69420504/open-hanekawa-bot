@@ -1,5 +1,4 @@
 import discord,operator,json,aiohttp,re,os,random,time
-from pyradios import RadioBrowser
 from utils import embed_gen
 from fake_useragent import UserAgent
 
